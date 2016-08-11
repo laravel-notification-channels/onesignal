@@ -5,8 +5,7 @@ namespace NotificationChannels\OneSignalNotifications;
 use Illuminate\Support\Arr;
 
 /**
- * Class Message
- * @package NotificationChannels\OneSignalNotifications
+ * Class Message.
  */
 class Message
 {
@@ -54,7 +53,7 @@ class Message
     }
 
     /**
-     * Set the message body
+     * Set the message body.
      *
      * @param string $value
      * @return $this
@@ -67,7 +66,7 @@ class Message
     }
 
     /**
-     * Set the message icon
+     * Set the message icon.
      *
      * @param string $value
      * @return $this
@@ -80,7 +79,7 @@ class Message
     }
 
     /**
-     * Set the message subject
+     * Set the message subject.
      *
      * @param string $value
      * @return $this
@@ -93,7 +92,7 @@ class Message
     }
 
     /**
-     * Set the message url
+     * Set the message url.
      *
      * @param string $value
      * @return $this
@@ -106,7 +105,7 @@ class Message
     }
 
     /**
-     * Set additional data
+     * Set additional data.
      *
      * @param string $key
      * @param string $value
@@ -120,7 +119,7 @@ class Message
     }
 
     /**
-     * Add a web button to the message
+     * Add a web button to the message.
      *
      * @param string $id
      * @param string $text
@@ -135,14 +134,14 @@ class Message
             'id' => $id,
             'text' => $text,
             'icon' => $icon,
-            'url' => $url
+            'url' => $url,
         ];
 
         return $this;
     }
 
     /**
-     * Add a native button to the message
+     * Add a native button to the message.
      *
      * @param string $id
      * @param string $text
@@ -155,7 +154,7 @@ class Message
         $this->buttons[] = [
             'id' => $id,
             'text' => $text,
-            'icon' => $icon
+            'icon' => $icon,
         ];
 
         return $this;
@@ -174,7 +173,7 @@ class Message
             'web_buttons' => $this->web_buttons,
         ];
 
-        foreach ($this->data AS $data => $value) {
+        foreach ($this->data as $data => $value) {
             Arr::set($message, 'data.'.$data, $value);
         }
 

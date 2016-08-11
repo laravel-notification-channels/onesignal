@@ -46,7 +46,7 @@ class Channel
 
         /** @var ResponseInterface $response */
         $response = $this->onesignal->sendNotificationCustom($oneSignalData);
-        
+
         if ($response->getStatusCode() !== 200) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($response);
         }
