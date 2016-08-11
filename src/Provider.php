@@ -20,7 +20,7 @@ class Provider extends ServiceProvider
                 return new OneSignalClient(
                     $oneSignalConfig['app_id'],
                     $oneSignalConfig['rest_api_key'],
-                    $oneSignalConfig['user_auth_key']
+                    ''
                 );
             });
     }

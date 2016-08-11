@@ -19,11 +19,16 @@ class Message
      * @var string
      */
     protected $subject;
-    
+
     /**
-     * @var
+     * @var string
      */
     protected $url;
+
+    /**
+     * @var string
+     */
+    protected $icon;
 
     /**
      * @var array
@@ -57,6 +62,19 @@ class Message
     public function body($value)
     {
         $this->body = $value;
+
+        return $this;
+    }
+
+    /**
+     * Set the message icon
+     *
+     * @param string $value
+     * @return $this
+     */
+    public function icon($value)
+    {
+        $this->icon = $value;
 
         return $this;
     }

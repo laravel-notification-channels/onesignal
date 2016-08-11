@@ -16,7 +16,7 @@ class Channel
      */
     protected $onesignal;
 
-    public function __construct($onesignal)
+    public function __construct(OneSignalClient $onesignal)
     {
         $this->onesignal = $onesignal;
     }

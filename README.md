@@ -28,6 +28,14 @@ You must install the service provider:
 ];
 ```
 
+Add your OneSignal App ID and REST API Key to your `config/services.php`:
+
+```php
+    'onesignal' => [
+        'app_id' => env('ONESIGNAL_APP_ID'),
+        'rest_api_key' => env('ONESIGNAL_REST_API_KEY')
+    ]
+```
 ## Usage
 
 Now you can use the channel in your `via()` method inside the notification:
@@ -47,11 +55,20 @@ class AccountApproved extends Notification
     public function toOneSignal($notifiable)
     {
         return (new Message())
-            ->subject("Your {$notifiable->service} account was approved!");
+            ->subject("Your {$notifiable->service} account was approved!")
             ->body("Click here to see details.")
             ->url('http://onesignal.com')
-            ->webButton('link-1', 'Click here', 'http://laravel.com');
+            ->webButton('link-1', 'Click here', 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Laravel_logo.png', 'http://laravel.com');
     }
+}
+```
+
+In order to let your Notification know which OneSignal user(s) you are targeting, add the `routeNotificationForOneSignal` method to your Notifiable model.
+
+```php
+public function routeNotificationForOneSignal()
+{
+    return 'ONE_SIGNAL_PLAYER_ID';
 }
 ```
 
