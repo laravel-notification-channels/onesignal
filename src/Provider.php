@@ -4,6 +4,7 @@ namespace NotificationChannels\OneSignal;
 
 use Berkayk\OneSignal\OneSignalClient;
 use Illuminate\Support\ServiceProvider;
+use NotificationChannels\OneSignal\Exceptions\InvalidConfiguration;
 
 class Provider extends ServiceProvider
 {
@@ -16,6 +17,10 @@ class Provider extends ServiceProvider
             ->needs(OneSignalClient::class)
             ->give(function () {
                 $oneSignalConfig = config('services.onesignal');
+
+                if (is_null($oneSignalConfig)) {
+                    throw InvalidConfiguration::configurationNotSet();
+                }
 
                 return new OneSignalClient(
                     $oneSignalConfig['app_id'],

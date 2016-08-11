@@ -9,40 +9,36 @@ use Illuminate\Support\Arr;
  */
 class Message
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $body;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $subject;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $url;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $icon;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $data = [];
 
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $buttons = [];
 
+    /** @var array */
+    protected $webButtons = [];
+
     /**
-     * @var array
+     * @param string $body
+     *
+     * @return static
      */
-    protected $web_buttons = [];
+    public static function create($body = '')
+    {
+        return new static($body);
+    }
 
     /**
      * @param string $body
@@ -56,6 +52,7 @@ class Message
      * Set the message body.
      *
      * @param string $value
+     *
      * @return $this
      */
     public function body($value)
@@ -69,6 +66,7 @@ class Message
      * Set the message icon.
      *
      * @param string $value
+     *
      * @return $this
      */
     public function icon($value)
@@ -82,6 +80,7 @@ class Message
      * Set the message subject.
      *
      * @param string $value
+     *
      * @return $this
      */
     public function subject($value)
@@ -95,6 +94,7 @@ class Message
      * Set the message url.
      *
      * @param string $value
+     *
      * @return $this
      */
     public function url($value)
@@ -109,6 +109,7 @@ class Message
      *
      * @param string $key
      * @param string $value
+     *
      * @return $this
      */
     public function setData($key, $value)
@@ -130,7 +131,7 @@ class Message
      */
     public function webButton($id, $text, $icon, $url)
     {
-        $this->web_buttons[] = [
+        $this->webButtons[] = [
             'id' => $id,
             'text' => $text,
             'icon' => $icon,
@@ -170,7 +171,7 @@ class Message
             'headings' => ['en' => $this->subject],
             'url' => $this->url,
             'buttons' => $this->buttons,
-            'web_buttons' => $this->web_buttons,
+            'web_buttons' => $this->webButtons,
         ];
 
         foreach ($this->data as $data => $value) {
