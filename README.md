@@ -31,11 +31,14 @@ You must install the service provider:
 Add your OneSignal App ID and REST API Key to your `config/services.php`:
 
 ```php
+// config/services.php
+
     'onesignal' => [
         'app_id' => env('ONESIGNAL_APP_ID'),
         'rest_api_key' => env('ONESIGNAL_REST_API_KEY')
     ]
 ```
+
 ## Usage
 
 Now you can use the channel in your `via()` method inside the notification:
