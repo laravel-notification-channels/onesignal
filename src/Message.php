@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\OneSignalNotifications;
+namespace NotificationChannels\OneSignal;
 
 use Illuminate\Support\Arr;
 

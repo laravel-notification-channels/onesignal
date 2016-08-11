@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\OneSignalNotifications\Test;
+namespace NotificationChannels\OneSignal\Test;
 
 class ExampleTest extends \PHPUnit_Framework_TestCase
 {

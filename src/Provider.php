@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\OneSignalNotifications;
+namespace NotificationChannels\OneSignal;
 
 use Berkayk\OneSignal\OneSignalClient;
 use Illuminate\Support\ServiceProvider;

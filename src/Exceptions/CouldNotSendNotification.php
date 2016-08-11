@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\OneSignalNotifications\Exceptions;
+namespace NotificationChannels\OneSignal\Exceptions;
 
 class CouldNotSendNotification extends \Exception
 {

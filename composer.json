@@ -1,7 +1,7 @@
 {
-    "name": "laravel-notification-channels/onesignal-notifications",
+    "name": "laravel-notification-channels/onesignal",
     "description": "OneSignal Notifications driver",
-    "homepage": "https://github.com/laravel-notification-channels/onesignal-notifications",
+    "homepage": "https://github.com/laravel-notification-channels/onesignal",
     "license": "MIT",
     "authors": [
         {
@@ -33,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NotificationChannels\\OneSignalNotifications\\": "src"
+            "NotificationChannels\\OneSignal\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NotificationChannels\\OneSignalNotifications\\Test\\": "tests"
+            "NotificationChannels\\OneSignal\\Test\\": "tests"
         }
     },
     "config": {

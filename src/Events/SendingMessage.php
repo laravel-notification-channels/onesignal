@@ -1,6 +1,6 @@
 <?php
 
-namespace NotificationChannels\OneSignalNotifications\Events;
+namespace NotificationChannels\OneSignal\Events;
 
 use Illuminate\Notifications\Notification;
 

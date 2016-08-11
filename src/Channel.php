@@ -1,11 +1,11 @@
 <?php
 
-namespace NotificationChannels\OneSignalNotifications;
+namespace NotificationChannels\OneSignal;
 
 use Berkayk\OneSignal\OneSignalClient;
-use NotificationChannels\OneSignalNotifications\Exceptions\CouldNotSendNotification;
-use NotificationChannels\OneSignalNotifications\Events\MessageWasSent;
-use NotificationChannels\OneSignalNotifications\Events\SendingMessage;
+use NotificationChannels\OneSignal\Exceptions\CouldNotSendNotification;
+use NotificationChannels\OneSignal\Events\MessageWasSent;
+use NotificationChannels\OneSignal\Events\SendingMessage;
 use Illuminate\Notifications\Notification;
 use Psr\Http\Message\ResponseInterface;
 
@@ -27,7 +27,7 @@ class Channel
      * @param mixed $notifiable
      * @param \Illuminate\Notifications\Notification $notification
      *
-     * @throws \NotificationChannels\OneSignalNotifications\Exceptions\CouldNotSendNotification
+     * @throws \NotificationChannels\OneSignal\Exceptions\CouldNotSendNotification
      */
     public function send($notifiable, Notification $notification)
     {
