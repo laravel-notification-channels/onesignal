@@ -40,7 +40,7 @@ class Channel
         }
 
         $payload = $notification->toOneSignal($notifiable)->toArray();
-        $payload['include_player_ids'] = $userIds;
+        $payload['include_player_ids'] = collect($userIds);
 
         /** @var ResponseInterface $response */
         $response = $this->onesignal->sendNotificationCustom($payload);
