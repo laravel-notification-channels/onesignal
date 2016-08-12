@@ -9,14 +9,14 @@ use NotificationChannels\OneSignal\Events\SendingMessage;
 use Illuminate\Notifications\Notification;
 use Psr\Http\Message\ResponseInterface;
 
-class Channel
+class OneSignalChannel
 {
     /** @var OneSignalClient */
-    protected $onesignal;
+    protected $oneSignal;
 
-    public function __construct(OneSignalClient $onesignal)
+    public function __construct(OneSignalClient $oneSignal)
     {
-        $this->onesignal = $onesignal;
+        $this->oneSignal = $oneSignal;
     }
 
     /**
@@ -43,7 +43,7 @@ class Channel
         $payload['include_player_ids'] = collect($userIds);
 
         /** @var ResponseInterface $response */
-        $response = $this->onesignal->sendNotificationCustom($payload);
+        $response = $this->oneSignal->sendNotificationCustom($payload);
 
         if ($response->getStatusCode() !== 200) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($response);

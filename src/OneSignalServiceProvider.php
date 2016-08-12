@@ -6,14 +6,14 @@ use Berkayk\OneSignal\OneSignalClient;
 use Illuminate\Support\ServiceProvider;
 use NotificationChannels\OneSignal\Exceptions\InvalidConfiguration;
 
-class Provider extends ServiceProvider
+class OneSignalServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
      */
     public function boot()
     {
-        $this->app->when(Channel::class)
+        $this->app->when(OneSignalChannel::class)
             ->needs(OneSignalClient::class)
             ->give(function () {
                 $oneSignalConfig = config('services.onesignal');
@@ -28,12 +28,5 @@ class Provider extends ServiceProvider
                     ''
                 );
             });
-    }
-
-    /**
-     * Register the application services.
-     */
-    public function register()
-    {
     }
 }
