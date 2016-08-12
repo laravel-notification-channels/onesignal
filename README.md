@@ -88,6 +88,8 @@ class AccountApproved extends Notification
 
 In order to let your Notification know which OneSignal user(s) you are targeting, add the `routeNotificationForOneSignal` method to your Notifiable model.
 
+You can either return a single player-id, or if you want to notify multiple player IDs just return an array containing all IDs.
+
 ```php
 public function routeNotificationForOneSignal()
 {
