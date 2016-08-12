@@ -75,6 +75,10 @@ public function routeNotificationForOneSignal()
 }
 ```
 
+### All available methods
+
+TODO
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
@@ -85,13 +89,13 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 $ composer test
 ```
 
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
 ## Security
 
 If you discover any security related issues, please email m.pociot@gmail.com instead of using the issue tracker.
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
