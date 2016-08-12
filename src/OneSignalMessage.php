@@ -4,7 +4,7 @@ namespace NotificationChannels\OneSignal;
 
 use Illuminate\Support\Arr;
 
-class Message
+class OneSignalMessage
 {
     /** @var string */
     protected $body;

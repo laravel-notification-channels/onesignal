@@ -37,7 +37,7 @@ You must install the service provider:
 // config/app.php
 'providers' => [
     ...
-    NotificationChannels\OneSignal\Provider::class,
+    NotificationChannels\OneSignal\OneSignalProvider::class,
 ];
 ```
 
@@ -68,12 +68,12 @@ class AccountApproved extends Notification
 {
     public function via($notifiable)
     {
-        return [Channel::class];
+        return [OneSignalChannel::class];
     }
 
     public function toOneSignal($notifiable)
     {
-        return (new Message())
+        return OneSignalMessage::create()
             ->subject("Your {$notifiable->service} account was approved!")
             ->body("Click here to see details.")
             ->url('http://onesignal.com')

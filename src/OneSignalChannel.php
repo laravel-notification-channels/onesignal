@@ -9,7 +9,7 @@ use NotificationChannels\OneSignal\Events\SendingMessage;
 use Illuminate\Notifications\Notification;
 use Psr\Http\Message\ResponseInterface;
 
-class Channel
+class OneSignalChannel
 {
     /** @var OneSignalClient */
     protected $oneSignal;
