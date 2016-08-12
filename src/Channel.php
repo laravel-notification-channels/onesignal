@@ -12,11 +12,11 @@ use Psr\Http\Message\ResponseInterface;
 class Channel
 {
     /** @var OneSignalClient */
-    protected $onesignal;
+    protected $oneSignal;
 
-    public function __construct(OneSignalClient $onesignal)
+    public function __construct(OneSignalClient $ongeSignal)
     {
-        $this->onesignal = $onesignal;
+        $this->oneSignal = $ongeSignal;
     }
 
     /**
@@ -43,7 +43,7 @@ class Channel
         $payload['include_player_ids'] = collect($userIds);
 
         /** @var ResponseInterface $response */
-        $response = $this->onesignal->sendNotificationCustom($payload);
+        $response = $this->oneSignal->sendNotificationCustom($payload);
 
         if ($response->getStatusCode() !== 200) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($response);
