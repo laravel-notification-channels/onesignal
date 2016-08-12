@@ -4,9 +4,6 @@ namespace NotificationChannels\OneSignal;
 
 use Illuminate\Support\Arr;
 
-/**
- * Class Message.
- */
 class Message
 {
     /** @var string */
