@@ -120,7 +120,7 @@ class OneSignalMessage
      * Add a web button to the message.
      *
      * @param WebButton $button
-     * 
+     *
      * @return $this
      */
     public function webButton(WebButton $button)
