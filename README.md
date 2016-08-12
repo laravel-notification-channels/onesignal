@@ -77,7 +77,11 @@ class AccountApproved extends Notification
             ->subject("Your {$notifiable->service} account was approved!")
             ->body("Click here to see details.")
             ->url('http://onesignal.com')
-            ->webButton('link-1', 'Click here', 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Laravel_logo.png', 'http://laravel.com');
+            ->webButton(WebButton::create('link-1')
+                ->text('Click here')
+                ->icon('https://upload.wikimedia.org/wikipedia/commons/4/4f/Laravel_logo.png')
+                ->url('http://laravel.com')
+            );
     }
 }
 ```
