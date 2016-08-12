@@ -14,9 +14,9 @@ class Channel
     /** @var OneSignalClient */
     protected $oneSignal;
 
-    public function __construct(OneSignalClient $ongeSignal)
+    public function __construct(OneSignalClient $oneSignal)
     {
-        $this->oneSignal = $ongeSignal;
+        $this->oneSignal = $oneSignal;
     }
 
     /**
