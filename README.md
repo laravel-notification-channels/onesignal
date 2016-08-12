@@ -9,6 +9,19 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/onesignal.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/onesignal)
 
 This package makes it easy to send [OneSignal notifications](https://documentation.onesignal.com/docs) with Laravel 5.3.
+## Contents
+
+- [Installation](#installation)
+	- [Setting up your OneSignal account](#setting-up-your-onesignal-account)
+- [Usage](#usage)
+	- [Available Message methods](#available-message-methods)
+- [Changelog](#changelog)
+- [Testing](#testing)
+- [Security](#security)
+- [Contributing](#contributing)
+- [Credits](#credits)
+- [License](#license)
+
 
 ## Installation
 
@@ -28,6 +41,8 @@ You must install the service provider:
 ];
 ```
 
+### Setting up your OneSignal account
+
 Add your OneSignal App ID and REST API Key to your `config/services.php`:
 
 ```php
@@ -38,6 +53,7 @@ Add your OneSignal App ID and REST API Key to your `config/services.php`:
         'rest_api_key' => env('ONESIGNAL_REST_API_KEY')
     ]
 ```
+
 
 ## Usage
 
