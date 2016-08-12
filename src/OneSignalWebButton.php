@@ -3,9 +3,9 @@
 namespace NotificationChannels\OneSignal;
 
 /**
- * Class WebButton.
+ * Class OneSignalWebButton.
  */
-class WebButton
+class OneSignalWebButton
 {
     /** @var string */
     protected $id;

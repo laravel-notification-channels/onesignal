@@ -119,11 +119,11 @@ class OneSignalMessage
     /**
      * Add a web button to the message.
      *
-     * @param WebButton $button
+     * @param OneSignalWebButton $button
      *
      * @return $this
      */
-    public function webButton(WebButton $button)
+    public function webButton(OneSignalWebButton $button)
     {
         $this->webButtons[] = $button->toArray();
 
@@ -133,11 +133,11 @@ class OneSignalMessage
     /**
      * Add a native button to the message.
      *
-     * @param Button $button
+     * @param OneSignalButton $button
      *
      * @return $this
      */
-    public function button(Button $button)
+    public function button(OneSignalButton $button)
     {
         $this->buttons[] = $button->toArray();
 

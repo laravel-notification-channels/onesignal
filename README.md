@@ -62,8 +62,9 @@ Add your OneSignal App ID and REST API Key to your `config/services.php`:
 Now you can use the channel in your `via()` method inside the notification:
 
 ``` php
-use NotificationChannels\OneSignal\Channel;
-use NotificationChannels\OneSignal\Message;
+use NotificationChannels\OneSignal\OneSignalChannel;
+use NotificationChannels\OneSignal\OneSignalMessage;
+use NotificationChannels\OneSignal\OneSignalWebButton;
 use Illuminate\Notifications\Notification;
 
 class AccountApproved extends Notification
@@ -79,7 +80,7 @@ class AccountApproved extends Notification
             ->subject("Your {$notifiable->service} account was approved!")
             ->body("Click here to see details.")
             ->url('http://onesignal.com')
-            ->webButton(WebButton::create('link-1')
+            ->webButton(OneSignalWebButton::create('link-1')
                 ->text('Click here')
                 ->icon('https://upload.wikimedia.org/wikipedia/commons/4/4f/Laravel_logo.png')
                 ->url('http://laravel.com')
@@ -105,15 +106,15 @@ public function routeNotificationForOneSignal()
 - `body('')`: Accepts a string value for the notification body.
 - `icon('')`: Accepts an url for the icon.
 - `url('')`: Accepts an url for the notification click event.
-- `webButton(WebButton $button)`: Allows you to add action buttons to the notification (Chrome 48+ (web push) only).
-- `button(Button $button)`: Allows you to add buttons to the notification (Supported by iOS 8.0 and Android 4.1+ devices. Icon only works for Android).
+- `webButton(OneSignalWebButton $button)`: Allows you to add action buttons to the notification (Chrome 48+ (web push) only).
+- `button(OneSignalButton $button)`: Allows you to add buttons to the notification (Supported by iOS 8.0 and Android 4.1+ devices. Icon only works for Android).
 - `setData($key, $value)`: Allows you to set additional data for the message payload. For more information check the [OneSignal documentation](https://documentation.onesignal.com/docs/notifications-create-notification).
 
 ### Button usage
 
 ```php
 OneSignalMessage::create()
-    ->button(Button::create('id')
+    ->button(OneSignalButton::create('id')
         ->text('button text')
         ->icon('button icon')
     );
@@ -123,7 +124,7 @@ OneSignalMessage::create()
 
 ```php
 OneSignalMessage::create()
-    ->webButton(WebButton::create('id')
+    ->webButton(OneSignalWebButton::create('id')
         ->text('button text')
         ->icon('button icon')
         ->url('button url')
