@@ -15,6 +15,8 @@ This package makes it easy to send [OneSignal notifications](https://documentati
 	- [Setting up your OneSignal account](#setting-up-your-onesignal-account)
 - [Usage](#usage)
 	- [Available Message methods](#available-message-methods)
+	- [Button usage](#button-usage)
+	- [WebButton usage](#webbutton-usage)
 - [Changelog](#changelog)
 - [Testing](#testing)
 - [Security](#security)
@@ -99,7 +101,34 @@ public function routeNotificationForOneSignal()
 
 ### All available methods
 
-TODO
+- `subject('')`: Accepts a string value for the title.
+- `body('')`: Accepts a string value for the notification body.
+- `icon('')`: Accepts an url for the icon.
+- `url('')`: Accepts an url for the notification click event.
+- `webButton(WebButton $button)`: Allows you to add action buttons to the notification (Chrome 48+ (web push) only).
+- `button(Button $button)`: Allows you to add buttons to the notification (Supported by iOS 8.0 and Android 4.1+ devices. Icon only works for Android).
+- `setData($key, $value)`: Allows you to set additional data for the message payload. For more information check the [OneSignal documentation](https://documentation.onesignal.com/docs/notifications-create-notification).
+
+### Button usage
+
+```php
+OneSignalMessage::create()
+    ->button(Button::create('id')
+        ->text('button text')
+        ->icon('button icon')
+    );
+```
+
+### WebButton usage
+
+```php
+OneSignalMessage::create()
+    ->webButton(WebButton::create('id')
+        ->text('button text')
+        ->icon('button icon')
+        ->url('button url')
+    );
+```
 
 ## Changelog
 
