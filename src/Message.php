@@ -122,21 +122,13 @@ class Message
     /**
      * Add a web button to the message.
      *
-     * @param string $id
-     * @param string $text
-     * @param string $icon
-     * @param string $url
-     *
+     * @param WebButton $button
+     * 
      * @return $this
      */
-    public function webButton($id, $text, $icon, $url)
+    public function webButton(WebButton $button)
     {
-        $this->webButtons[] = [
-            'id' => $id,
-            'text' => $text,
-            'icon' => $icon,
-            'url' => $url,
-        ];
+        $this->webButtons[] = $button->toArray();
 
         return $this;
     }
@@ -144,19 +136,13 @@ class Message
     /**
      * Add a native button to the message.
      *
-     * @param string $id
-     * @param string $text
-     * @param string $icon
+     * @param Button $button
      *
      * @return $this
      */
-    public function button($id, $text, $icon)
+    public function button(Button $button)
     {
-        $this->buttons[] = [
-            'id' => $id,
-            'text' => $text,
-            'icon' => $icon,
-        ];
+        $this->buttons[] = $button->toArray();
 
         return $this;
     }
