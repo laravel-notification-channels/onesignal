@@ -40,7 +40,7 @@ You must install the service provider:
 'providers' => [
     ...
     NotificationChannels\OneSignal\OneSignalProvider::class,
-];
+],
 ```
 
 ### Setting up your OneSignal account
@@ -49,11 +49,12 @@ Add your OneSignal App ID and REST API Key to your `config/services.php`:
 
 ```php
 // config/services.php
-
-    'onesignal' => [
-        'app_id' => env('ONESIGNAL_APP_ID'),
-        'rest_api_key' => env('ONESIGNAL_REST_API_KEY')
-    ]
+...
+'onesignal' => [
+    'app_id' => env('ONESIGNAL_APP_ID'),
+    'rest_api_key' => env('ONESIGNAL_REST_API_KEY')
+],
+...
 ```
 
 
