@@ -155,6 +155,10 @@ class OneSignalMessage
             'url' => $this->url,
             'buttons' => $this->buttons,
             'web_buttons' => $this->webButtons,
+            'chrome_web_icon' => $this->icon,
+            'chrome_icon' => $this->icon,
+            'adm_small_icon' => $this->icon,
+            'small_icon' => $this->icon,
         ];
 
         foreach ($this->data as $data => $value) {
