@@ -9,6 +9,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/onesignal.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/onesignal)
 
 This package makes it easy to send [OneSignal notifications](https://documentation.onesignal.com/docs) with Laravel 5.3.
+
 ## Contents
 
 - [Installation](#installation)
@@ -81,10 +82,11 @@ class AccountApproved extends Notification
             ->subject("Your {$notifiable->service} account was approved!")
             ->body("Click here to see details.")
             ->url('http://onesignal.com')
-            ->webButton(OneSignalWebButton::create('link-1')
-                ->text('Click here')
-                ->icon('https://upload.wikimedia.org/wikipedia/commons/4/4f/Laravel_logo.png')
-                ->url('http://laravel.com')
+            ->webButton(
+                OneSignalWebButton::create('link-1')
+                    ->text('Click here')
+                    ->icon('https://upload.wikimedia.org/wikipedia/commons/4/4f/Laravel_logo.png')
+                    ->url('http://laravel.com')
             );
     }
 }
@@ -115,9 +117,10 @@ public function routeNotificationForOneSignal()
 
 ```php
 OneSignalMessage::create()
-    ->button(OneSignalButton::create('id')
-        ->text('button text')
-        ->icon('button icon')
+    ->button(
+        OneSignalButton::create('id')
+            ->text('button text')
+            ->icon('button icon')
     );
 ```
 
@@ -125,10 +128,11 @@ OneSignalMessage::create()
 
 ```php
 OneSignalMessage::create()
-    ->webButton(OneSignalWebButton::create('id')
-        ->text('button text')
-        ->icon('button icon')
-        ->url('button url')
+    ->webButton(
+        OneSignalWebButton::create('id')
+            ->text('button text')
+            ->icon('button icon')
+            ->url('button url')
     );
 ```
 
