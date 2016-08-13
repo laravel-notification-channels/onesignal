@@ -48,17 +48,17 @@ class ChannelTest extends TestCase
                 'chrome_icon' => 'Icon',
                 'adm_small_icon' => 'Icon',
                 'small_icon' => 'Icon',
-                'include_player_ids' => collect('player_id')
+                'include_player_ids' => collect('player_id'),
             ])
             ->andReturn($response);
-        
+
         $this->channel->send(new Notifiable(), new TestNotification());
     }
 
     /** @test */
     public function it_throws_an_exception_when_it_could_not_send_the_notification()
     {
-        $response = new Response(500,[],'ResponseBody');
+        $response = new Response(500, [], 'ResponseBody');
 
         $this->oneSignal->shouldReceive('sendNotificationCustom')
             ->once()
@@ -72,7 +72,7 @@ class ChannelTest extends TestCase
                 'chrome_icon' => 'Icon',
                 'adm_small_icon' => 'Icon',
                 'small_icon' => 'Icon',
-                'include_player_ids' => collect('player_id')
+                'include_player_ids' => collect('player_id'),
             ])
             ->andReturn($response);
 
