@@ -151,7 +151,6 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [Mohamed Said](https://github.com/themsaid)
 - [Marcel Pociot](https://github.com/mpociot)
 - [Freek Van der Herten](https://github.com/freekmurze)
 - [All Contributors](../../contributors)

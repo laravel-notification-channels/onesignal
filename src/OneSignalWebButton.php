@@ -2,9 +2,6 @@
 
 namespace NotificationChannels\OneSignal;
 
-/**
- * Class OneSignalWebButton.
- */
 class OneSignalWebButton
 {
     /** @var string */
