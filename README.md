@@ -40,7 +40,7 @@ You must install the service provider:
 // config/app.php
 'providers' => [
     ...
-    NotificationChannels\OneSignal\OneSignalProvider::class,
+    NotificationChannels\OneSignal\OneSignalServiceProvider::class,
 ],
 ```
 
