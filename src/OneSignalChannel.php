@@ -4,8 +4,6 @@ namespace NotificationChannels\OneSignal;
 
 use Berkayk\OneSignal\OneSignalClient;
 use NotificationChannels\OneSignal\Exceptions\CouldNotSendNotification;
-use NotificationChannels\OneSignal\Events\MessageWasSent;
-use NotificationChannels\OneSignal\Events\SendingMessage;
 use Illuminate\Notifications\Notification;
 use Psr\Http\Message\ResponseInterface;
 
@@ -33,12 +31,6 @@ class OneSignalChannel
             return;
         }
 
-        $shouldSendMessage = event(new SendingMessage($notifiable, $notification), [], true) !== false;
-
-        if (! $shouldSendMessage) {
-            return;
-        }
-
         $payload = $notification->toOneSignal($notifiable)->toArray();
         $payload['include_player_ids'] = collect($userIds);
 
@@ -48,7 +40,5 @@ class OneSignalChannel
         if ($response->getStatusCode() !== 200) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($response);
         }
-
-        event(new MessageWasSent($notifiable, $notification));
     }
 }
