@@ -16,6 +16,9 @@ class OneSignalMessage
     protected $url;
 
     /** @var string */
+    protected $sound;
+
+    /** @var string */
     protected $icon;
 
     /** @var array */
@@ -74,6 +77,20 @@ class OneSignalMessage
     }
 
     /**
+     * Set the message sound.
+     *
+     * @param string $value
+     *
+     * @return $this
+     */
+    public function sound($value)
+    {
+        $this->sound = $value;
+
+        return $this;
+    }
+
+    /**
      * Set the message subject.
      *
      * @param string $value
@@ -104,14 +121,18 @@ class OneSignalMessage
     /**
      * Set additional data.
      *
-     * @param string $key
+     * @param mixed $key
      * @param string $value
      *
      * @return $this
      */
-    public function setData($key, $value)
+    public function setData($key, $value = null)
     {
-        $this->data[$key] = $value;
+        if (is_array($key)) {
+            array_merge($this->data, $key);
+        } else {
+            $this->data[$key] = $value;
+        }
 
         return $this;
     }
@@ -159,6 +180,10 @@ class OneSignalMessage
             'chrome_icon' => $this->icon,
             'adm_small_icon' => $this->icon,
             'small_icon' => $this->icon,
+            'ios_sound' => $this->sound,
+            'android_sound' => $this->sound,
+            'adm_sound' => $this->sound,
+            'wp_sound' => $this->sound
         ];
 
         foreach ($this->data as $data => $value) {
