@@ -18,6 +18,9 @@ class OneSignalMessage
     /** @var string */
     protected $icon;
 
+    /** @var string */
+    protected $picture;
+
     /** @var array */
     protected $data = [];
 
@@ -69,6 +72,20 @@ class OneSignalMessage
     public function icon($value)
     {
         $this->icon = $value;
+
+        return $this;
+    }
+
+    /**
+     * Set the message picture (chrome only).
+     *
+     * @param string $value
+     *
+     * @return $this
+     */
+    public function picture($value)
+    {
+        $this->picture = $value;
 
         return $this;
     }
@@ -157,6 +174,7 @@ class OneSignalMessage
             'web_buttons' => $this->webButtons,
             'chrome_web_icon' => $this->icon,
             'chrome_icon' => $this->icon,
+            'chrome_web_image' => $this->picture,
             'adm_small_icon' => $this->icon,
             'small_icon' => $this->icon,
         ];
