@@ -113,6 +113,7 @@ public function routeNotificationForOneSignal()
 - `webButton(OneSignalWebButton $button)`: Allows you to add action buttons to the notification (Chrome 48+ (web push) only).
 - `button(OneSignalButton $button)`: Allows you to add buttons to the notification (Supported by iOS 8.0 and Android 4.1+ devices. Icon only works for Android).
 - `setData($key, $value)`: Allows you to set additional data for the message payload. For more information check the [OneSignal documentation](https://documentation.onesignal.com/reference).
+- `setParameter($key, $value)`: Allows you to set additional parameters for the message payload that are available for the REST API. For more information check the [OneSignal documentation](https://documentation.onesignal.com/reference).
 
 ### Button usage
 

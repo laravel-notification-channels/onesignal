@@ -27,6 +27,9 @@ class OneSignalMessage
     /** @var array */
     protected $webButtons = [];
 
+    /** @var array */
+    protected $extraParameters = [];
+
     /**
      * @param string $body
      *
@@ -117,6 +120,21 @@ class OneSignalMessage
     }
 
     /**
+     * Set additional parameters.
+     *
+     * @param string $key
+     * @param string $value
+     *
+     * @return $this
+     */
+    public function setParameter($key, $value)
+    {
+        $this->extraParameters[$key] = $value;
+
+        return $this;
+    }
+
+    /**
      * Add a web button to the message.
      *
      * @param OneSignalWebButton $button
@@ -160,6 +178,10 @@ class OneSignalMessage
             'adm_small_icon' => $this->icon,
             'small_icon' => $this->icon,
         ];
+
+        foreach ($this->extraParameters as $key => $value) {
+            Arr::set($message, $key, $value);
+        }
 
         foreach ($this->data as $data => $value) {
             Arr::set($message, 'data.'.$data, $value);
