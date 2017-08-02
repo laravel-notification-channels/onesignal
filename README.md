@@ -35,7 +35,7 @@ You can install the package via composer:
 composer require laravel-notification-channels/onesignal
 ```
 
-You must install the service provider:
+This package supports Laravel >= 5.5 packages auto-discovery. For previous version, you must install the service provider:
 
 ```php
 // config/app.php
