@@ -7,7 +7,7 @@ use NotificationChannels\OneSignal\OneSignalButton;
 use NotificationChannels\OneSignal\OneSignalMessage;
 use NotificationChannels\OneSignal\OneSignalWebButton;
 
-class MessageTest extends \PHPUnit_Framework_TestCase
+class MessageTest extends \PHPUnit\Framework\TestCase
 {
     /** @var \NotificationChannels\OneSignal\OneSignalMessage */
     protected $message;

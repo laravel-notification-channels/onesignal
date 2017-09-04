@@ -1,4 +1,4 @@
-# OneSignal notifications channel for Laravel 5.3
+# OneSignal notifications channel for Laravel >= 5.3
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/onesignal.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/onesignal)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -9,7 +9,7 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/onesignal/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/onesignal/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/onesignal.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/onesignal)
 
-This package makes it easy to send [OneSignal notifications](https://documentation.onesignal.com/docs) with Laravel 5.3.
+This package makes it easy to send [OneSignal notifications](https://documentation.onesignal.com/docs) with Laravel >= 5.3.
 
 ## Contents
 
@@ -35,7 +35,7 @@ You can install the package via composer:
 composer require laravel-notification-channels/onesignal
 ```
 
-You must install the service provider:
+This package supports Laravel >= 5.5 packages auto-discovery. For previous version, you must install the service provider:
 
 ```php
 // config/app.php
