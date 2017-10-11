@@ -76,7 +76,7 @@ class ChannelTest extends TestCase
             ])
             ->andReturn($response);
 
-        $this->setExpectedException(CouldNotSendNotification::class);
+        $this->expectException(CouldNotSendNotification::class);
 
         $this->channel->send(new Notifiable(), new TestNotification());
     }
