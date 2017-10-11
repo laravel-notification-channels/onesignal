@@ -38,6 +38,13 @@
     "scripts": {
         "test": "vendor/bin/phpunit"
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NotificationChannels\\OneSignal\\OneSignalServiceProvider"
+            ]
+        }
+    },
     "config": {
         "sort-packages": true
     }
