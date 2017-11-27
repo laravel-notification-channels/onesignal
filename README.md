@@ -16,7 +16,7 @@ This package makes it easy to send [OneSignal notifications](https://documentati
 - [Installation](#installation)
 	- [Setting up your OneSignal account](#setting-up-your-onesignal-account)
 - [Usage](#usage)
-	- [Available Message methods](#available-message-methods)
+	- [Available Message methods](#all-available-methods)
 	- [Button usage](#button-usage)
 	- [WebButton usage](#webbutton-usage)
 - [Changelog](#changelog)
