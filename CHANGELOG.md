@@ -3,7 +3,7 @@
 All Notable changes to `onesignal` will be documented in this file
 
 
-## 1.0.1 - 2018-01-03
+## 1.0.2 - 2018-01-03
 
 - add compatiblity for Laravel 5.5 
 
