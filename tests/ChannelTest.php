@@ -105,7 +105,7 @@ class ChannelTest extends TestCase
             ])
             ->andReturn($response);
 
-        $this->channel->send(new NotifiableEMail(), new TestNotification());
+        $this->channel->send(new NotifiableEmail(), new TestNotification());
     }
 
 }
