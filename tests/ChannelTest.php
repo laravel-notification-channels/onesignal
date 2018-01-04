@@ -11,6 +11,7 @@ use NotificationChannels\OneSignal\Exceptions\CouldNotSendNotification;
 
 class ChannelTest extends TestCase
 {
+
     /** @var Mockery\Mock */
     protected $oneSignal;
 
@@ -79,5 +80,28 @@ class ChannelTest extends TestCase
         $this->expectException(CouldNotSendNotification::class);
 
         $this->channel->send(new Notifiable(), new TestNotification());
+    }
+
+    public function it_can_send_a_notification_with_email()
+    {
+        $response = new Response(200);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with([
+                'contents' => ['en' => 'Body'],
+                'headings' => ['en' => 'Subject'],
+                'url' => 'URL',
+                'buttons' => [],
+                'web_buttons' => [],
+                'chrome_web_icon' => 'Icon',
+                'chrome_icon' => 'Icon',
+                'adm_small_icon' => 'Icon',
+                'small_icon' => 'Icon',
+                'tags' => collect(["key" => "email", "relation" => "=", "value" => 'test@example.com']),
+            ])
+            ->andReturn($response);
+
+        $this->channel->send(new NotifiableEMail(), new TestNotification());
     }
 }

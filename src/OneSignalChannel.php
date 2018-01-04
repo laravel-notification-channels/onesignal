@@ -9,6 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 
 class OneSignalChannel
 {
+
     /** @var OneSignalClient */
     protected $oneSignal;
 
@@ -20,20 +21,23 @@ class OneSignalChannel
     /**
      * Send the given notification.
      *
-     * @param mixed $notifiable
+     * @param mixed                                  $notifiable
      * @param \Illuminate\Notifications\Notification $notification
      *
      * @throws \NotificationChannels\OneSignal\Exceptions\CouldNotSendNotification
      */
     public function send($notifiable, Notification $notification)
     {
-        if (! $userIds = $notifiable->routeNotificationFor('OneSignal')) {
+        if (!$userIds = $notifiable->routeNotificationFor('OneSignal')) {
             return;
         }
 
         $payload = $notification->toOneSignal($notifiable)->toArray();
-        $payload['include_player_ids'] = collect($userIds);
-
+        if (is_array($userIds) && array_key_exists('email', $userIds)) {
+            $payload['tags'] = collect(["key" => "email", "relation" => "=", "value" => $userIds['email']]);
+        } else {
+            $payload['include_player_ids'] = collect($userIds);
+        }
         /** @var ResponseInterface $response */
         $response = $this->oneSignal->sendNotificationCustom($payload);
 
