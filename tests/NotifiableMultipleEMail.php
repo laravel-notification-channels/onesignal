@@ -2,7 +2,7 @@
 
 namespace NotificationChannels\OneSignal\Test;
 
-class NotifiableEMail
+class NotifiableMultipleEMail
 {
 
     use \Illuminate\Notifications\Notifiable;
@@ -12,6 +12,6 @@ class NotifiableEMail
      */
     public function routeNotificationForOneSignal()
     {
-        return ['email' => 'test@example.com'];
+        return ['email' => ['test@example.com', 'test2@example.com']];
     }
 }

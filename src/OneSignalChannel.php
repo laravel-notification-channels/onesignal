@@ -34,7 +34,7 @@ class OneSignalChannel
 
         $payload = $notification->toOneSignal($notifiable)->toArray();
         if (is_array($userIds) && array_key_exists('email', $userIds)) {
-            $payload['filters'] = collect([["field" => "email", "relation" => "=", "value" => $userIds['email']]]);
+            $payload['filters'] = collect($this->parseEmailsToFilters($userIds['email']));
         } else {
             $payload['include_player_ids'] = collect($userIds);
         }
@@ -44,5 +44,28 @@ class OneSignalChannel
         if ($response->getStatusCode() !== 200) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($response);
         }
+    }
+
+    /**
+     * Parse the given E-Mails to the array-format that OneSignal needs.
+     *
+     * @param mixed $userEmails
+     *
+     * @return array
+     */
+    public function parseEmailsToFilters($userEmails)
+    {
+        if (is_array($userEmails)) {
+            return collect($userEmails)->map(function ($email, $key) use ($userEmails) {
+                if ($key < (count($userEmails) - 1)) {
+                    return [["field" => "email", "relation" => "=", "value" => $email], ['operator' => 'OR']];
+                } else {
+                    return [["field" => "email", "relation" => "=", "value" => $email]];
+                }
+            })->flatten(1)->toArray();
+        }
+
+        return [["field" => "email", "relation" => "=", "value" => $userEmails]];
+
     }
 }
