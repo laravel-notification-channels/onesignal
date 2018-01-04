@@ -98,7 +98,7 @@ class ChannelTest extends TestCase
                 'chrome_icon' => 'Icon',
                 'adm_small_icon' => 'Icon',
                 'small_icon' => 'Icon',
-                'filters' => collect(["key" => "email", "relation" => "=", "value" => 'test@example.com']),
+                'filters' => collect(["field" => "email", "relation" => "=", "value" => 'test@example.com']),
             ])
             ->andReturn($response);
 
