@@ -108,4 +108,14 @@ class MessageTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('buttonText', Arr::get($this->message->toArray(), 'buttons.0.text'));
         $this->assertEquals('buttonIcon', Arr::get($this->message->toArray(), 'buttons.0.icon'));
     }
+
+    /** @test */
+    public function it_can_set_a_image(){
+        $this->message->setImageAttachments('https://url.com/to/image.jpg');
+
+        $this->assertEquals('https://url.com/to/image.jpg',Arr::get($this->message->toArray(), 'ios_attachments.id1'));
+        $this->assertEquals('https://url.com/to/image.jpg',Arr::get($this->message->toArray(), 'big_picture'));
+        $this->assertEquals('https://url.com/to/image.jpg',Arr::get($this->message->toArray(), 'adm_big_picture'));
+        $this->assertEquals('https://url.com/to/image.jpg',Arr::get($this->message->toArray(), 'chrome_big_picture'));
+    }
 }
