@@ -124,6 +124,7 @@ public function routeNotificationForOneSignal()
 - `setData($key, $value)`: Allows you to set additional data for the message payload. For more information check the [OneSignal documentation](https://documentation.onesignal.com/reference).
 - `setParameter($key, $value)`: Allows you to set additional parameters for the message payload that are available for the REST API. For more information check the [OneSignal documentation](https://documentation.onesignal.com/reference).
 - `setImageAttachments($imageUrl)`: Allows you to set one Image to all possible Attachments [OneSignal Attachment documentation](https://documentation.onesignal.com/reference#section-attachments).
+
 ### Button usage
 
 ```php
