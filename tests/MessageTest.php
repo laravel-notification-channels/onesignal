@@ -69,6 +69,16 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     }
 
     /** @test */
+    public function it_can_set_additional_parameter()
+    {
+        $this->message->setParameter('key_one', 'value_one');
+        $this->message->setParameter('key_two', 'value_two');
+
+        $this->assertEquals('value_one', Arr::get($this->message->toArray(), 'key_one'));
+        $this->assertEquals('value_two', Arr::get($this->message->toArray(), 'key_two'));
+    }
+
+    /** @test */
     public function it_can_set_the_icon()
     {
         $this->message->icon('myIcon');
