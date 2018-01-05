@@ -4,7 +4,6 @@ namespace NotificationChannels\OneSignal\Test;
 
 class NotifiableEmail
 {
-
     use \Illuminate\Notifications\Notifiable;
 
     /**
