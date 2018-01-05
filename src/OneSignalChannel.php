@@ -3,9 +3,9 @@
 namespace NotificationChannels\OneSignal;
 
 use Berkayk\OneSignal\OneSignalClient;
-use NotificationChannels\OneSignal\Exceptions\CouldNotSendNotification;
-use Illuminate\Notifications\Notification;
 use Psr\Http\Message\ResponseInterface;
+use Illuminate\Notifications\Notification;
+use NotificationChannels\OneSignal\Exceptions\CouldNotSendNotification;
 
 class OneSignalChannel
 {
@@ -32,7 +32,12 @@ class OneSignalChannel
         }
 
         $payload = $notification->toOneSignal($notifiable)->toArray();
-        $payload['include_player_ids'] = collect($userIds);
+
+        if (is_array($userIds) && array_key_exists('email', $userIds)) {
+            $payload['filters'] = collect([['field' => 'email', 'value' => $userIds['email']]]);
+        } else {
+            $payload['include_player_ids'] = collect($userIds);
+        }
 
         /** @var ResponseInterface $response */
         $response = $this->oneSignal->sendNotificationCustom($payload);

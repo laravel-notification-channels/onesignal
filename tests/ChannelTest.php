@@ -80,4 +80,30 @@ class ChannelTest extends TestCase
 
         $this->channel->send(new Notifiable(), new TestNotification());
     }
+
+    /**
+     * @test
+     */
+    public function it_can_send_a_notification_with_email()
+    {
+        $response = new Response(200);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with([
+                'contents' => ['en' => 'Body'],
+                'headings' => ['en' => 'Subject'],
+                'url' => 'URL',
+                'buttons' => [],
+                'web_buttons' => [],
+                'chrome_web_icon' => 'Icon',
+                'chrome_icon' => 'Icon',
+                'adm_small_icon' => 'Icon',
+                'small_icon' => 'Icon',
+                'filters' => collect([['field' => 'email', 'value' => 'test@example.com']]),
+            ])
+            ->andReturn($response);
+
+        $this->channel->send(new NotifiableEmail(), new TestNotification());
+    }
 }

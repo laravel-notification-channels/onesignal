@@ -104,6 +104,15 @@ public function routeNotificationForOneSignal()
 }
 ```
 
+If you want to send the notification based on the OneSignal "syncHashedEmail" feature just return an array with the index "email". **It isn't possible to use multiple E-Mails on one filter because of a limitation of the OneSignal API.**
+
+```php
+public function routeNotificationForOneSignal()
+{
+    return ['email' => 'example@example.com'];
+}
+```
+
 ### All available methods
 
 - `subject('')`: Accepts a string value for the title.
