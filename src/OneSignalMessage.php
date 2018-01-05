@@ -168,7 +168,8 @@ class OneSignalMessage
      *
      * @return $this
      */
-    public function setImageAttachments($imageUrl){
+    public function setImageAttachments($imageUrl)
+    {
         $this->extraParameters['ios_attachments']['id1'] = $imageUrl;
         $this->extraParameters['big_picture'] = $imageUrl;
         $this->extraParameters['adm_big_picture'] = $imageUrl;
