@@ -163,6 +163,22 @@ class OneSignalMessage
     }
 
     /**
+     * Set an image to all possible attachment variables.
+     * @param string $imageUrl
+     *
+     * @return $this
+     */
+    public function setImageAttachments($imageUrl)
+    {
+        $this->extraParameters['ios_attachments']['id1'] = $imageUrl;
+        $this->extraParameters['big_picture'] = $imageUrl;
+        $this->extraParameters['adm_big_picture'] = $imageUrl;
+        $this->extraParameters['chrome_big_picture'] = $imageUrl;
+
+        return $this;
+    }
+
+    /**
      * @return array
      */
     public function toArray()
