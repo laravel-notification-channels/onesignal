@@ -31,11 +31,11 @@ This package makes it easy to send [OneSignal notifications](https://documentati
 
 You can install the package via composer:
 
-``` bash
-composer require laravel-notification-channels/onesignal
+```bash
+$ composer require laravel-notification-channels/onesignal
 ```
 
-You must install the service provider:
+If you're installing the package in Laravel 5.4 or lower, you must import the service provider:
 
 ```php
 // config/app.php
@@ -154,7 +154,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Testing
 
-``` bash
+```bash
 $ composer test
 ```
 
@@ -170,6 +170,8 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 - [Marcel Pociot](https://github.com/mpociot)
 - [Freek Van der Herten](https://github.com/freekmurze)
+- [Lukas Kämmerling](https://github.com/LKDevelopment)
+- [David Llop](https://github.com/Lloople)
 - [All Contributors](../../contributors)
 
 ## License

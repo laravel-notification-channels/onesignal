@@ -12,6 +12,16 @@
             "name": "Freek Van der Herten",
             "email": "freek@spatie.be",
             "homepage": "https://spatie.be"
+        },
+        {
+          "name": "Lukas Kämmerling",
+          "email": "kontakt@lukas-kaemmerling.de",
+          "homepage": "https://lukas-kaemmerling.de"
+        },
+        {
+          "name": "David Llop",
+          "email": "hello@davidllop.com",
+          "homepage": "http://davidllop.com"
         }
     ],
     "require": {
