@@ -23,6 +23,7 @@ class OneSignalChannel
      * @param mixed $notifiable
      * @param \Illuminate\Notifications\Notification $notification
      *
+     * @return \Psr\Http\Message\ResponseInterface
      * @throws \NotificationChannels\OneSignal\Exceptions\CouldNotSendNotification
      */
     public function send($notifiable, Notification $notification)
@@ -45,5 +46,7 @@ class OneSignalChannel
         if ($response->getStatusCode() !== 200) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($response);
         }
+
+        return $response;
     }
 }
