@@ -6,6 +6,7 @@ use Mockery;
 use GuzzleHttp\Psr7\Response;
 use Orchestra\Testbench\TestCase;
 use Berkayk\OneSignal\OneSignalClient;
+use Psr\Http\Message\ResponseInterface;
 use NotificationChannels\OneSignal\OneSignalChannel;
 use NotificationChannels\OneSignal\Exceptions\CouldNotSendNotification;
 
@@ -52,7 +53,9 @@ class ChannelTest extends TestCase
             ])
             ->andReturn($response);
 
-        $this->channel->send(new Notifiable(), new TestNotification());
+        $channel_response = $this->channel->send(new Notifiable(), new TestNotification());
+
+        $this->assertInstanceOf(ResponseInterface::class, $channel_response);
     }
 
     /** @test */
@@ -104,6 +107,18 @@ class ChannelTest extends TestCase
             ])
             ->andReturn($response);
 
-        $this->channel->send(new NotifiableEmail(), new TestNotification());
+        $channel_response = $this->channel->send(new NotifiableEmail(), new TestNotification());
+
+        $this->assertInstanceOf(ResponseInterface::class, $channel_response);
+    }
+
+    /** @test */
+    public function it_sends_nothing_and_returns_null_when_player_id_empty()
+    {
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->never();
+
+        $channel_response = $this->channel->send(new EmptyNotifiable(), new TestNotification());
+        $this->assertNull($channel_response);
     }
 }
