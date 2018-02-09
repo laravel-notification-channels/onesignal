@@ -29,7 +29,7 @@ class OneSignalChannel
     public function send($notifiable, Notification $notification)
     {
         if (! $userIds = $notifiable->routeNotificationFor('OneSignal')) {
-            return;
+            return null;
         }
 
         $payload = $notification->toOneSignal($notifiable)->toArray();
