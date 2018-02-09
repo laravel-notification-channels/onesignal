@@ -6,9 +6,9 @@ use Mockery;
 use GuzzleHttp\Psr7\Response;
 use Orchestra\Testbench\TestCase;
 use Berkayk\OneSignal\OneSignalClient;
+use Psr\Http\Message\ResponseInterface;
 use NotificationChannels\OneSignal\OneSignalChannel;
 use NotificationChannels\OneSignal\Exceptions\CouldNotSendNotification;
-use Psr\Http\Message\ResponseInterface;
 
 class ChannelTest extends TestCase
 {
