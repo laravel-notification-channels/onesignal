@@ -34,8 +34,14 @@ class OneSignalChannel
 
         $payload = $notification->toOneSignal($notifiable)->toArray();
 
-        if (is_array($userIds) && array_key_exists('email', $userIds)) {
-            $payload['filters'] = collect([['field' => 'email', 'value' => $userIds['email']]]);
+        if (is_array($userIds)) {
+            if (array_key_exists('email', $userIds)) {
+                $payload['filters'] = collect([['field' => 'email', 'value' => $userIds['email']]]);
+            } else {
+                if (array_key_exists('tags', $userIds)) {
+                    $payload['tags'] = collect([$userIds['tags']]);
+                }
+            }
         } else {
             $payload['include_player_ids'] = collect($userIds);
         }
