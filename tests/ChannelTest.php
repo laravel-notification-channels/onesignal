@@ -87,6 +87,34 @@ class ChannelTest extends TestCase
     /**
      * @test
      */
+    public function it_can_send_a_notification_with_array()
+    {
+        $response = new Response(200);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with([
+                'contents' => ['en' => 'Body'],
+                'headings' => ['en' => 'Subject'],
+                'url' => 'URL',
+                'buttons' => [],
+                'web_buttons' => [],
+                'chrome_web_icon' => 'Icon',
+                'chrome_icon' => 'Icon',
+                'adm_small_icon' => 'Icon',
+                'small_icon' => 'Icon',
+                'include_player_ids' => collect(['player_id_1', 'player_id_2']),
+            ])
+            ->andReturn($response);
+
+        $channel_response = $this->channel->send(new NotifiableArray(), new TestNotification());
+
+        $this->assertInstanceOf(ResponseInterface::class, $channel_response);
+    }
+
+    /**
+     * @test
+     */
     public function it_can_send_a_notification_with_email()
     {
         $response = new Response(200);
