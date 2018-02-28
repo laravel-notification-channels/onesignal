@@ -44,6 +44,13 @@ class OneSignalChannel
         return $response;
     }
 
+    /**
+     * @param mixed $notifiable
+     * @param \Illuminate\Notifications\Notification $notification
+     * @param mixed $targeting
+     *
+     * @return array
+     */
     protected function payload($notifiable, $notification, $userIds)
     {
         return OneSignalPayloadFactory::make($notifiable, $notification, $userIds);
