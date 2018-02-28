@@ -21,6 +21,8 @@ class OneSignalPayloadFactory
 
         if (static::isTargetingEmail($targeting)) {
             $payload['filters'] = collect([['field' => 'email', 'value' => $targeting['email']]]);
+        } elseif (static::isTargetingTags($targeting)) {
+            $payload['tags'] = collect([$targeting['tags']]);
         } else {
             $payload['include_player_ids'] = collect($targeting);
         }
@@ -36,5 +38,10 @@ class OneSignalPayloadFactory
     protected static function isTargetingEmail($targeting)
     {
         return is_array($targeting) && array_key_exists('email', $targeting);
+    }
+
+    protected static function isTargetingTags($targeting)
+    {
+        return is_array($targeting) && array_key_exists('tags', $targeting);
     }
 }
