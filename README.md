@@ -112,7 +112,14 @@ public function routeNotificationForOneSignal()
     return ['email' => 'example@example.com'];
 }
 ```
+If you want to send the notification based on the OneSignal "Tags" feature just return an array with the index "tags".
 
+```php
+public function routeNotificationForOneSignal()
+{
+    return ['tags' => ['key' => 'device_uuid', 'relation' => '=', 'value' => '1234567890-abcdefgh-1234567']];
+}
+```
 ### All available methods
 
 - `subject('')`: Accepts a string value for the title.
