@@ -11,6 +11,6 @@ class NotifiableTags
      */
     public function routeNotificationForOneSignal()
     {
-        return ['tags' => ["key" => "device_uuid", "relation" => "=", "value" => "123e4567-e89b-12d3-a456-426655440000"]];
+        return ['tags' => ['key' => 'device_uuid', 'relation' => '=', 'value' => '123e4567-e89b-12d3-a456-426655440000']];
     }
 }

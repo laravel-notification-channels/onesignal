@@ -141,7 +141,8 @@ class ChannelTest extends TestCase
     }
 
     /** @test */
-    public function it_can_send_a_notification_with_tags(){
+    public function it_can_send_a_notification_with_tags()
+    {
         $response = new Response(200);
 
         $this->oneSignal->shouldReceive('sendNotificationCustom')
@@ -156,7 +157,7 @@ class ChannelTest extends TestCase
                 'chrome_icon' => 'Icon',
                 'adm_small_icon' => 'Icon',
                 'small_icon' => 'Icon',
-                'tags' => collect([["key" => "device_uuid", "relation" => "=", "value" => "123e4567-e89b-12d3-a456-426655440000"]]),
+                'tags' => collect([['key' => 'device_uuid', 'relation' => '=', 'value' => '123e4567-e89b-12d3-a456-426655440000']]),
             ])
             ->andReturn($response);
 
@@ -164,6 +165,7 @@ class ChannelTest extends TestCase
 
         $this->assertInstanceOf(ResponseInterface::class, $channel_response);
     }
+
     /** @test */
     public function it_sends_nothing_and_returns_null_when_player_id_empty()
     {
