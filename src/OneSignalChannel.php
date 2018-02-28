@@ -37,10 +37,8 @@ class OneSignalChannel
         if (is_array($userIds)) {
             if (array_key_exists('email', $userIds)) {
                 $payload['filters'] = collect([['field' => 'email', 'value' => $userIds['email']]]);
-            } else {
-                if (array_key_exists('tags', $userIds)) {
-                    $payload['tags'] = collect([$userIds['tags']]);
-                }
+            } elseif (array_key_exists('tags', $userIds)) {
+                $payload['tags'] = collect([$userIds['tags']]);
             }
         } else {
             $payload['include_player_ids'] = collect($userIds);
