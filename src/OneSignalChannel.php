@@ -32,21 +32,20 @@ class OneSignalChannel
             return;
         }
 
-        $payload = $notification->toOneSignal($notifiable)->toArray();
-
-        if (is_array($userIds) && array_key_exists('email', $userIds)) {
-            $payload['filters'] = collect([['field' => 'email', 'value' => $userIds['email']]]);
-        } else {
-            $payload['include_player_ids'] = collect($userIds);
-        }
-
         /** @var ResponseInterface $response */
-        $response = $this->oneSignal->sendNotificationCustom($payload);
+        $response = $this->oneSignal->sendNotificationCustom(
+            $this->payload($notifiable, $notification, $userIds)
+        );
 
         if ($response->getStatusCode() !== 200) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($response);
         }
 
         return $response;
+    }
+
+    protected function payload($notifiable, $notification, $userIds)
+    {
+        return OneSignalPayloadFactory::make($notifiable, $notification, $userIds);
     }
 }
