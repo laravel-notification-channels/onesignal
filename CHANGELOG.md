@@ -1,6 +1,12 @@
 # Changelog
 
 All Notable changes to `onesignal` will be documented in this file
+## 1.2.0 - 2018-03-09
+- [Feature] Added targetting per Tags https://github.com/laravel-notification-channels/onesignal/pull/48
+- [Refactor] Implement payload Factory https://github.com/laravel-notification-channels/onesignal/pull/50
+
+## 1.1.1 - 2018-02-09
+- [Feature] Added return for response after sending the message https://github.com/laravel-notification-channels/onesignal/pull/46 
 
 ## 1.1.0 - 2018-01-08
 - Min. PHP Version is now PHP 7.0 and tests were executed on php 7.2 https://github.com/laravel-notification-channels/onesignal/pull/44
