@@ -1,7 +1,7 @@
 # Changelog
 
 All Notable changes to `onesignal` will be documented in this file
-## 1.2.0 - 2018-03-XX
+## 1.2.0 - 2018-03-09
 - [Feature] Added targetting per Tags https://github.com/laravel-notification-channels/onesignal/pull/48
 - [Refactor] Implement payload Factory https://github.com/laravel-notification-channels/onesignal/pull/50
 
