@@ -15,7 +15,7 @@ class OneSignalPayloadFactory
      *
      * @return array
      */
-    public static function make($notifiable, Notification $notification, $targeting) : array
+    public static function make($notifiable, Notification $notification, $targeting)
     {
         $payload = $notification->toOneSignal($notifiable)->toArray();
 
