@@ -40,6 +40,11 @@ class OneSignalPayloadFactory
         return is_array($targeting) && array_key_exists('email', $targeting);
     }
 
+    /**
+     * @param mixed $targeting
+     *
+     * @return bool
+     */
     protected static function isTargetingTags($targeting)
     {
         return is_array($targeting) && array_key_exists('tags', $targeting);
