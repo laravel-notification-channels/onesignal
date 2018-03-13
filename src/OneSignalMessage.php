@@ -111,7 +111,7 @@ class OneSignalMessage
      *
      * @return $this
      */
-    public function incrementBadgeCount($count = 1)
+    public function incrementIosBadgeCount($count = 1)
     {
         return $this->setParameter('ios_badgeType', 'Increase')
                     ->setParameter('ios_badgeCount', $count);
@@ -124,7 +124,7 @@ class OneSignalMessage
      *
      * @return $this
      */
-    public function decrementBadgeCount($count = 1)
+    public function decrementIosBadgeCount($count = 1)
     {
         return $this->setParameter('ios_badgeType', 'Increase')
                     ->setParameter('ios_badgeCount', -1 * $count);
@@ -137,7 +137,7 @@ class OneSignalMessage
      *
      * @return $this
      */
-    public function setBadgeCount($count)
+    public function setIosBadgeCount($count)
     {
         return $this->setParameter('ios_badgeType', 'SetTo')
                     ->setParameter('ios_badgeCount', $count);
