@@ -185,7 +185,7 @@ class OneSignalMessage
     {
         $message = [
             'contents' => ['en' => $this->body],
-            'headings' => ['en' => $this->subject],
+            'headings' => $this->subjectToArray(),
             'url' => $this->url,
             'buttons' => $this->buttons,
             'web_buttons' => $this->webButtons,
@@ -204,5 +204,14 @@ class OneSignalMessage
         }
 
         return $message;
+    }
+
+    protected function subjectToArray()
+    {
+        if ($this->subject === null) {
+            return [];
+        }
+
+        return ['en' => $this->subject];
     }
 }

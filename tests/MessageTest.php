@@ -51,6 +51,12 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     }
 
     /** @test */
+    public function it_does_not_append_empty_subject_value_when_subject_is_null()
+    {
+        $this->assertEquals([], Arr::get($this->message->toArray(), 'headings'));
+    }
+
+    /** @test */
     public function it_can_set_the_url()
     {
         $this->message->url('myURL');
