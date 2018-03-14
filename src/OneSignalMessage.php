@@ -86,15 +86,13 @@ class OneSignalMessage
      * Set additional data.
      *
      * @param string $key
-     * @param string $value
+     * @param mixed $value
      *
      * @return $this
      */
-    public function setData($key, $value)
+    public function setData(string $key, $value)
     {
-        $this->data[$key] = $value;
-
-        return $this;
+        return $this->setParameter("data.{$key}", $value);
     }
 
     /**
@@ -107,8 +105,7 @@ class OneSignalMessage
      */
     public function setParameter(string $key, $value)
     {
-        $this->payload[$key] = $value;
-
+        Arr::set($this->payload,$key,$value);
         return $this;
     }
 
@@ -119,11 +116,6 @@ class OneSignalMessage
      */
     public function toArray()
     {
-
-        foreach ($this->data as $data => $value) {
-            Arr::set($this->payload, 'data.'.$data, $value);
-        }
-
         return $this->payload;
     }
 }
