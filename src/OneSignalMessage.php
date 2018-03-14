@@ -126,44 +126,18 @@ class OneSignalMessage
      * Set additional parameters.
      *
      * @param string $key
-     * @param string $value
+     * @param mixed $value
      *
      * @return $this
      */
-    public function setParameter($key, $value)
+    public function setParameter(string $key, $value)
     {
         $this->extraParameters[$key] = $value;
 
         return $this;
     }
 
-    /**
-     * Add a web button to the message.
-     *
-     * @param OneSignalWebButton $button
-     *
-     * @return $this
-     */
-    public function webButton(OneSignalWebButton $button)
-    {
-        $this->webButtons[] = $button->toArray();
 
-        return $this;
-    }
-
-    /**
-     * Add a native button to the message.
-     *
-     * @param OneSignalButton $button
-     *
-     * @return $this
-     */
-    public function button(OneSignalButton $button)
-    {
-        $this->buttons[] = $button->toArray();
-
-        return $this;
-    }
 
     /**
      * @return array
@@ -174,8 +148,6 @@ class OneSignalMessage
             'contents' => ['en' => $this->body],
             'headings' => $this->subjectToArray(),
             'url' => $this->url,
-            'buttons' => $this->buttons,
-            'web_buttons' => $this->webButtons,
             'chrome_web_icon' => $this->icon,
             'chrome_icon' => $this->icon,
             'adm_small_icon' => $this->icon,
