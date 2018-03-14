@@ -65,6 +65,33 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     }
 
     /** @test */
+    public function it_can_set_the_increment_badge_count()
+    {
+        $this->message->incrementIosBadgeCount(123);
+
+        $this->assertEquals('Increase', Arr::get($this->message->toArray(), 'ios_badgeType'));
+        $this->assertEquals(123, Arr::get($this->message->toArray(), 'ios_badgeCount'));
+    }
+
+    /** @test */
+    public function it_can_set_the_decrement_badge_count()
+    {
+        $this->message->decrementIosBadgeCount(123);
+
+        $this->assertEquals('Increase', Arr::get($this->message->toArray(), 'ios_badgeType'));
+        $this->assertEquals(-123, Arr::get($this->message->toArray(), 'ios_badgeCount'));
+    }
+
+    /** @test */
+    public function it_can_set_the_badge_count()
+    {
+        $this->message->setIosBadgeCount(123);
+
+        $this->assertEquals('SetTo', Arr::get($this->message->toArray(), 'ios_badgeType'));
+        $this->assertEquals(123, Arr::get($this->message->toArray(), 'ios_badgeCount'));
+    }
+
+    /** @test */
     public function it_can_set_additional_data()
     {
         $this->message->setData('key_one', 'value_one');

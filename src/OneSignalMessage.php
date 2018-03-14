@@ -105,6 +105,45 @@ class OneSignalMessage
     }
 
     /**
+     * Set the iOS badge increment count.
+     *
+     * @param int $count
+     *
+     * @return $this
+     */
+    public function incrementIosBadgeCount($count = 1)
+    {
+        return $this->setParameter('ios_badgeType', 'Increase')
+                    ->setParameter('ios_badgeCount', $count);
+    }
+
+    /**
+     * Set the iOS badge decrement count.
+     *
+     * @param int $count
+     *
+     * @return $this
+     */
+    public function decrementIosBadgeCount($count = 1)
+    {
+        return $this->setParameter('ios_badgeType', 'Increase')
+                    ->setParameter('ios_badgeCount', -1 * $count);
+    }
+
+    /**
+     * Set the iOS badge count.
+     *
+     * @param int $count
+     *
+     * @return $this
+     */
+    public function setIosBadgeCount($count)
+    {
+        return $this->setParameter('ios_badgeType', 'SetTo')
+                    ->setParameter('ios_badgeCount', $count);
+    }
+
+    /**
      * Set additional data.
      *
      * @param string $key
