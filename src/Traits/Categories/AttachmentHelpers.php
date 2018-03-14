@@ -65,18 +65,8 @@ trait AttachmentHelpers
     }
 
     /**
-     * Set the additional Data for all Platforms.
-     * @param array $data
-     *
-     * @return $this
-     */
-    public function setData(array $data)
-    {
-        return $this->setParameter('data', $data);
-    }
-
-    /**
      * Set the additional URL for all Platforms.
+     *
      * @param string $url
      *
      * @return $this

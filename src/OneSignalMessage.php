@@ -7,6 +7,7 @@ use NotificationChannels\OneSignal\Traits\OneSignalHelpers;
 
 class OneSignalMessage
 {
+
     use OneSignalHelpers;
 
     /** @var array */
@@ -36,39 +37,35 @@ class OneSignalMessage
     /**
      * Set the message body.
      *
-     * @param string $value
+     * @param mixed $value
      *
      * @return $this
      */
     public function body($value)
     {
-        if (is_array($value)) {
-            $this->setParameter('contents', $value);
-        } else {
-            $this->setParameter('contents', ['en' => $value]);
-        }
-
-        return $this;
+        return $this->setParameter('contents', $this->parseValueToArray($value));
     }
 
     /**
      * Set the message subject.
      *
-     * @param string $value
+     * @param mixed $value
      *
      * @return $this
      */
     public function subject($value)
     {
-        if (is_array($value)) {
-            $this->setParameter('headings', $value);
-        } else {
-            $this->setParameter('headings', ['en' => $value]);
-        }
-
-        return $this;
+        return $this->setParameter('headings',$this->parseValueToArray($value));
     }
 
+    /**
+     * @param mixed $value
+     *
+     * @return array
+     */
+    protected function parseValueToArray($value){
+        return (is_array($value)) ? $value : ['en' => $value];
+    }
     /**
      * Set the message url.
      *
@@ -85,7 +82,7 @@ class OneSignalMessage
      * Set additional data.
      *
      * @param string $key
-     * @param mixed $value
+     * @param mixed  $value
      *
      * @return $this
      */
@@ -98,7 +95,7 @@ class OneSignalMessage
      * Set additional parameters.
      *
      * @param string $key
-     * @param mixed $value
+     * @param mixed  $value
      *
      * @return $this
      */

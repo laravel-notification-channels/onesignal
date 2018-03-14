@@ -76,7 +76,8 @@ trait AppearanceHelpers
      */
     public function setWindowsSound(string $soundUrl)
     {
-        return $this->setParameter('wp_sound', $soundUrl)->setParameter('wp_wns_sound', $soundUrl);
+        return $this->setParameter('wp_sound', $soundUrl)
+            ->setParameter('wp_wns_sound', $soundUrl);
     }
 
     /**

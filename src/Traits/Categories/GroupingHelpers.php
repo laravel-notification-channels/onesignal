@@ -6,6 +6,7 @@ trait GroupingHelpers
 {
     /**
      * Set the Android Grouping Parameters.
+     * 
      * @param string $group
      * @param array  $groupMessage
      *
@@ -19,6 +20,7 @@ trait GroupingHelpers
 
     /**
      * Set the Amazon (FireOS) Grouping Parameters.
+     *
      * @param string $group
      * @param array  $groupMessage
      *
@@ -32,6 +34,7 @@ trait GroupingHelpers
 
     /**
      * Set the Grouping Parameters for all available Systems (currently Android and Amazon (FireOs)).
+     *
      * @param string $group
      * @param array  $groupMessage
      *

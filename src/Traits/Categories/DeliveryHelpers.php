@@ -47,7 +47,7 @@ trait DeliveryHelpers
      *
      * @return $this
      */
-    public function setTTL(int $ttl)
+    public function setTtl(int $ttl)
     {
         return $this->setParameter('ttl', $ttl);
     }
@@ -59,7 +59,7 @@ trait DeliveryHelpers
      *
      * @return $this
      */
-    public function setPriority(string $priority)
+    public function setPriority(int $priority)
     {
         return $this->setParameter('priority', $priority);
     }
