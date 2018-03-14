@@ -4,6 +4,7 @@ namespace NotificationChannels\OneSignal\Traits\Categories;
 
 trait AppearanceHelpers
 {
+
     /**
      * Set the iOS badge increment count.
      *
@@ -99,9 +100,23 @@ trait AppearanceHelpers
      *
      * @param string $iconPath
      *
+     * @deprecated use setIcon instead
+     *
      * @return $this
      */
     public function icon(string $iconPath)
+    {
+        return $this->setIcon($iconPath);
+    }
+
+    /**
+     * Set the message icon.
+     *
+     * @param string $iconPath
+     *
+     * @return $this
+     */
+    public function setIcon(string $iconPath)
     {
         return $this->setParameter('chrome_web_icon', $iconPath)
             ->setParameter('chrome_icon', $iconPath)

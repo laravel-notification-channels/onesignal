@@ -3,15 +3,17 @@
 namespace NotificationChannels\OneSignal;
 
 use Illuminate\Support\Arr;
-use NotificationChannels\OneSignal\Traits\OneSignalHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\AppearanceHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\AttachmentHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\ButtonHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\DeliveryHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\GroupingHelpers;
+
 
 class OneSignalMessage
 {
 
-    use OneSignalHelpers;
-
-    /** @var array */
-    protected $data = [];
+    use AppearanceHelpers, AttachmentHelpers, ButtonHelpers, DeliveryHelpers, GroupingHelpers;
 
     /** @var array */
     protected $payload = [];
@@ -31,7 +33,21 @@ class OneSignalMessage
      */
     public function __construct($body = '')
     {
-        $this->body($body);
+        $this->setBody($body);
+    }
+
+    /**
+     * Set the message body.
+     *
+     * @param mixed $value
+     *
+     * @deprecated use setBody instead
+     *             
+     * @return $this
+     */
+    public function body($value)
+    {
+        return $this->setBody($value);
     }
 
     /**
@@ -41,7 +57,7 @@ class OneSignalMessage
      *
      * @return $this
      */
-    public function body($value)
+    public function setBody($value)
     {
         return $this->setParameter('contents', $this->parseValueToArray($value));
     }
@@ -51,11 +67,25 @@ class OneSignalMessage
      *
      * @param mixed $value
      *
+     * @deprecated Use setSubject instead
+     *
      * @return $this
      */
     public function subject($value)
     {
-        return $this->setParameter('headings',$this->parseValueToArray($value));
+        return $this->setParameter('headings', $this->parseValueToArray($value));
+    }
+
+    /**
+     * Set the message subject.
+     *
+     * @param mixed $value
+     *
+     * @return $this
+     */
+    public function setSubject($value)
+    {
+        return $this->setSubject($value);
     }
 
     /**
@@ -63,13 +93,17 @@ class OneSignalMessage
      *
      * @return array
      */
-    protected function parseValueToArray($value){
+    protected function parseValueToArray($value)
+    {
         return (is_array($value)) ? $value : ['en' => $value];
     }
+
     /**
      * Set the message url.
      *
      * @param string $value
+     *
+     * @deprecated use setUrl Instead
      *
      * @return $this
      */
@@ -92,7 +126,7 @@ class OneSignalMessage
     }
 
     /**
-     * Set additional parameters.
+     * Set parameters.
      *
      * @param string $key
      * @param mixed  $value
@@ -104,6 +138,19 @@ class OneSignalMessage
         Arr::set($this->payload, $key, $value);
 
         return $this;
+    }
+
+    /**
+     * Get parameters.
+     *
+     * @param string $key
+     * @param mixed  $default
+     *
+     * @return mixed
+     */
+    public function getParameter(string $key, $default = null)
+    {
+        return Arr::get($this->payload, $key, $default);
     }
 
     /**
