@@ -2,12 +2,10 @@
 
 namespace NotificationChannels\OneSignal\Traits\Categories;
 
-
 trait DeliveryHelpers
 {
-
     /**
-     * Set the send after
+     * Set the send after.
      *
      * @param string $date
      *
@@ -15,11 +13,11 @@ trait DeliveryHelpers
      */
     public function setSendAfter(string $date)
     {
-        return $this->setParameter('send_after',$date);
+        return $this->setParameter('send_after', $date);
     }
 
     /**
-     * Set the deplayed option
+     * Set the deplayed option.
      *
      * @param string $delayedOption
      *
@@ -31,7 +29,7 @@ trait DeliveryHelpers
     }
 
     /**
-     * Set the delivery at time of the day. Use with delayed option = timezone
+     * Set the delivery at time of the day. Use with delayed option = timezone.
      *
      * @param string $timeOfDay
      *
@@ -43,7 +41,7 @@ trait DeliveryHelpers
     }
 
     /**
-     * Set the Time to Live in Seconds
+     * Set the Time to Live in Seconds.
      *
      * @param int $ttl
      *
@@ -55,7 +53,7 @@ trait DeliveryHelpers
     }
 
     /**
-     * Set the Priority
+     * Set the Priority.
      *
      * @param int $priority
      *
@@ -65,5 +63,4 @@ trait DeliveryHelpers
     {
         return $this->setParameter('priority', $priority);
     }
-
 }
