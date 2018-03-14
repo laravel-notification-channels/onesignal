@@ -3,9 +3,11 @@
 namespace NotificationChannels\OneSignal;
 
 use Illuminate\Support\Arr;
+use NotificationChannels\OneSignal\Traits\OneSignalHelpers;
 
 class OneSignalMessage
 {
+    use OneSignalHelpers;
     /** @var string */
     protected $body;
 
@@ -104,44 +106,6 @@ class OneSignalMessage
         return $this;
     }
 
-    /**
-     * Set the iOS badge increment count.
-     *
-     * @param int $count
-     *
-     * @return $this
-     */
-    public function incrementIosBadgeCount($count = 1)
-    {
-        return $this->setParameter('ios_badgeType', 'Increase')
-                    ->setParameter('ios_badgeCount', $count);
-    }
-
-    /**
-     * Set the iOS badge decrement count.
-     *
-     * @param int $count
-     *
-     * @return $this
-     */
-    public function decrementIosBadgeCount($count = 1)
-    {
-        return $this->setParameter('ios_badgeType', 'Increase')
-                    ->setParameter('ios_badgeCount', -1 * $count);
-    }
-
-    /**
-     * Set the iOS badge count.
-     *
-     * @param int $count
-     *
-     * @return $this
-     */
-    public function setIosBadgeCount($count)
-    {
-        return $this->setParameter('ios_badgeType', 'SetTo')
-                    ->setParameter('ios_badgeCount', $count);
-    }
 
     /**
      * Set additional data.
@@ -202,22 +166,6 @@ class OneSignalMessage
     }
 
     /**
-     * Set an image to all possible attachment variables.
-     * @param string $imageUrl
-     *
-     * @return $this
-     */
-    public function setImageAttachments($imageUrl)
-    {
-        $this->extraParameters['ios_attachments']['id1'] = $imageUrl;
-        $this->extraParameters['big_picture'] = $imageUrl;
-        $this->extraParameters['adm_big_picture'] = $imageUrl;
-        $this->extraParameters['chrome_big_picture'] = $imageUrl;
-
-        return $this;
-    }
-
-    /**
      * @return array
      */
     public function toArray()
@@ -245,6 +193,9 @@ class OneSignalMessage
         return $message;
     }
 
+    /**
+     * @return array
+     */
     protected function subjectToArray()
     {
         if ($this->subject === null) {
