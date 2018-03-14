@@ -53,7 +53,7 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     /** @test */
     public function it_does_not_append_empty_subject_value_when_subject_is_null()
     {
-        $this->assertEquals([], Arr::get($this->message->toArray(), 'headings'));
+        $this->assertEquals(null, Arr::get($this->message->toArray(), 'headings'));
     }
 
     /** @test */

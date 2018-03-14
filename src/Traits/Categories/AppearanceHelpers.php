@@ -94,4 +94,18 @@ trait AppearanceHelpers
             ->setIosSound($soundUrl)
             ->setWindowsSound($soundUrl);
     }
+
+    /**
+     * Set the message icon.
+     *
+     * @param string $iconPath
+     *
+     * @return $this
+     */
+    public function icon(string $iconPath){
+        return $this->setParameter('chrome_web_icon', $iconPath)
+            ->setParameter('chrome_icon', $iconPath)
+            ->setParameter('adm_small_icon', $iconPath)
+            ->setParameter('small_icon', $iconPath);
+    }
 }

@@ -8,29 +8,14 @@ use NotificationChannels\OneSignal\Traits\OneSignalHelpers;
 class OneSignalMessage
 {
     use OneSignalHelpers;
-    /** @var string */
-    protected $body;
 
-    /** @var string */
-    protected $subject;
-
-    /** @var string */
-    protected $url;
-
-    /** @var string */
-    protected $icon;
 
     /** @var array */
     protected $data = [];
 
-    /** @var array */
-    protected $buttons = [];
 
     /** @var array */
-    protected $webButtons = [];
-
-    /** @var array */
-    protected $extraParameters = [];
+    protected $payload = [];
 
     /**
      * @param string $body
@@ -47,7 +32,7 @@ class OneSignalMessage
      */
     public function __construct($body = '')
     {
-        $this->body = $body;
+       $this->body($body);
     }
 
     /**
@@ -59,22 +44,11 @@ class OneSignalMessage
      */
     public function body($value)
     {
-        $this->body = $value;
-
-        return $this;
-    }
-
-    /**
-     * Set the message icon.
-     *
-     * @param string $value
-     *
-     * @return $this
-     */
-    public function icon($value)
-    {
-        $this->icon = $value;
-
+        if(is_array($value)){
+            $this->setParameter('contents',$value);
+        } else {
+            $this->setParameter('contents',['en' => $value]);
+        }
         return $this;
     }
 
@@ -87,8 +61,11 @@ class OneSignalMessage
      */
     public function subject($value)
     {
-        $this->subject = $value;
-
+        if(is_array($value)){
+            $this->setParameter('headings',$value);
+        } else {
+            $this->setParameter('headings',['en' => $value]);
+        }
         return $this;
     }
 
@@ -101,9 +78,7 @@ class OneSignalMessage
      */
     public function url($value)
     {
-        $this->url = $value;
-
-        return $this;
+       return $this->setUrl($value);
     }
 
 
@@ -132,7 +107,7 @@ class OneSignalMessage
      */
     public function setParameter(string $key, $value)
     {
-        $this->extraParameters[$key] = $value;
+        $this->payload[$key] = $value;
 
         return $this;
     }
@@ -144,36 +119,11 @@ class OneSignalMessage
      */
     public function toArray()
     {
-        $message = [
-            'contents' => ['en' => $this->body],
-            'headings' => $this->subjectToArray(),
-            'url' => $this->url,
-            'chrome_web_icon' => $this->icon,
-            'chrome_icon' => $this->icon,
-            'adm_small_icon' => $this->icon,
-            'small_icon' => $this->icon,
-        ];
-
-        foreach ($this->extraParameters as $key => $value) {
-            Arr::set($message, $key, $value);
-        }
 
         foreach ($this->data as $data => $value) {
-            Arr::set($message, 'data.'.$data, $value);
+            Arr::set($this->payload, 'data.'.$data, $value);
         }
 
-        return $message;
-    }
-
-    /**
-     * @return array
-     */
-    protected function subjectToArray()
-    {
-        if ($this->subject === null) {
-            return [];
-        }
-
-        return ['en' => $this->subject];
+        return $this->payload;
     }
 }
