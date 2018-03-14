@@ -6,7 +6,7 @@ trait GroupingHelpers
 {
     /**
      * Set the Android Grouping Parameters.
-     * 
+     *
      * @param string $group
      * @param array  $groupMessage
      *

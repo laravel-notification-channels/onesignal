@@ -5,27 +5,16 @@ namespace NotificationChannels\OneSignal\Traits\Categories;
 trait AttachmentHelpers
 {
     /**
-     * Set an Image only for iOS.
+     * Set an Image/more than one Image only for iOS.
      *
-     * @param string $imageUrl
-     *
-     * @return $this
-     */
-    public function setIosAttachment(string $imageUrl)
-    {
-        return $this->setParameter('ios_attachments', ['id1' => $imageUrl]);
-    }
-
-    /**
-     * Set multiple Images only for iOS.
-     *
-     * @param array $images
+     * @param string|array $imageUrl
      *
      * @return $this
      */
-    public function setIosAttachments(array $images)
+    public function setIosAttachment($imageUrl)
     {
-        return $this->setParameter('ios_attachments', $images);
+        $imageUrl = is_array($imageUrl) ? $imageUrl : ['id1' => $imageUrl];
+        return $this->setParameter('ios_attachments', $imageUrl);
     }
 
     /**
