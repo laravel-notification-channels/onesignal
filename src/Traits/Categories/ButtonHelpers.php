@@ -2,9 +2,8 @@
 
 namespace NotificationChannels\OneSignal\Traits\Categories;
 
-
-use NotificationChannels\OneSignal\OneSignalWebButton;
 use NotificationChannels\OneSignal\OneSignalButton;
+use NotificationChannels\OneSignal\OneSignalWebButton;
 
 trait ButtonHelpers
 {
@@ -17,9 +16,9 @@ trait ButtonHelpers
      */
     public function webButton(OneSignalWebButton $button)
     {
-        return $this->setParameter('web_buttons',[$button->toArray()]);
-
+        return $this->setParameter('web_buttons', [$button->toArray()]);
     }
+
     /**
      * Adds more than one web button to the message.
      *
@@ -29,9 +28,11 @@ trait ButtonHelpers
      */
     public function webButtons(array $buttons)
     {
-        return $this->setParameter('web_buttons',collect($buttons)->map(function($button) { return $button->toArray();}));
-
+        return $this->setParameter('web_buttons', collect($buttons)->map(function ($button) {
+            return $button->toArray();
+        }));
     }
+
     /**
      * Add a native button to the message.
      *
@@ -41,7 +42,7 @@ trait ButtonHelpers
      */
     public function button(OneSignalButton $button)
     {
-        return $this->setParameter('buttons',[$button->toArray()]);
+        return $this->setParameter('buttons', [$button->toArray()]);
     }
 
     /**
@@ -53,6 +54,8 @@ trait ButtonHelpers
      */
     public function buttons(array $buttons)
     {
-        return $this->setParameter('buttons',collect($buttons)->map(function($button) { return $button->toArray();}));
+        return $this->setParameter('buttons', collect($buttons)->map(function ($button) {
+            return $button->toArray();
+        }));
     }
 }

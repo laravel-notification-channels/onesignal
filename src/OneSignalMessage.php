@@ -9,10 +9,8 @@ class OneSignalMessage
 {
     use OneSignalHelpers;
 
-
     /** @var array */
     protected $data = [];
-
 
     /** @var array */
     protected $payload = [];
@@ -32,7 +30,7 @@ class OneSignalMessage
      */
     public function __construct($body = '')
     {
-       $this->body($body);
+        $this->body($body);
     }
 
     /**
@@ -44,11 +42,12 @@ class OneSignalMessage
      */
     public function body($value)
     {
-        if(is_array($value)){
-            $this->setParameter('contents',$value);
+        if (is_array($value)) {
+            $this->setParameter('contents', $value);
         } else {
-            $this->setParameter('contents',['en' => $value]);
+            $this->setParameter('contents', ['en' => $value]);
         }
+
         return $this;
     }
 
@@ -61,11 +60,12 @@ class OneSignalMessage
      */
     public function subject($value)
     {
-        if(is_array($value)){
-            $this->setParameter('headings',$value);
+        if (is_array($value)) {
+            $this->setParameter('headings', $value);
         } else {
-            $this->setParameter('headings',['en' => $value]);
+            $this->setParameter('headings', ['en' => $value]);
         }
+
         return $this;
     }
 
@@ -78,9 +78,8 @@ class OneSignalMessage
      */
     public function url($value)
     {
-       return $this->setUrl($value);
+        return $this->setUrl($value);
     }
-
 
     /**
      * Set additional data.
@@ -105,11 +104,10 @@ class OneSignalMessage
      */
     public function setParameter(string $key, $value)
     {
-        Arr::set($this->payload,$key,$value);
+        Arr::set($this->payload, $key, $value);
+
         return $this;
     }
-
-
 
     /**
      * @return array

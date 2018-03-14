@@ -2,12 +2,10 @@
 
 namespace NotificationChannels\OneSignal\Traits\Categories;
 
-
 trait AttachmentHelpers
 {
-
     /**
-     * Set an Image only for iOS
+     * Set an Image only for iOS.
      *
      * @param string $imageUrl
      *
@@ -19,7 +17,7 @@ trait AttachmentHelpers
     }
 
     /**
-     * Set multiple Images only for iOS
+     * Set multiple Images only for iOS.
      *
      * @param array $images
      *
@@ -31,7 +29,7 @@ trait AttachmentHelpers
     }
 
     /**
-     * Set the Big Picture Image only for Android
+     * Set the Big Picture Image only for Android.
      *
      * @param string $imageUrl
      *
@@ -43,7 +41,7 @@ trait AttachmentHelpers
     }
 
     /**
-     * Set the Big Picture Image only for FireOS (Amazon)
+     * Set the Big Picture Image only for FireOS (Amazon).
      *
      * @param string $imageUrl
      *
@@ -55,7 +53,7 @@ trait AttachmentHelpers
     }
 
     /**
-     * Set the Big Picture Image only for Chrome
+     * Set the Big Picture Image only for Chrome.
      *
      * @param string $imageUrl
      *
@@ -67,22 +65,24 @@ trait AttachmentHelpers
     }
 
     /**
-     * Set the additional Data for all Platforms
+     * Set the additional Data for all Platforms.
      * @param array $data
      *
      * @return $this
      */
-    public function setData(array $data){
+    public function setData(array $data)
+    {
         return $this->setParameter('data', $data);
     }
 
     /**
-     * Set the additional URL for all Platforms
+     * Set the additional URL for all Platforms.
      * @param string $url
      *
      * @return $this
      */
-    public function setUrl(string $url){
+    public function setUrl(string $url)
+    {
         return $this->setParameter('url', $url);
     }
 

@@ -2,10 +2,8 @@
 
 namespace NotificationChannels\OneSignal\Traits\Categories;
 
-
 trait AppearanceHelpers
 {
-
     /**
      * Set the iOS badge increment count.
      *
@@ -82,7 +80,7 @@ trait AppearanceHelpers
     }
 
     /**
-     * Set the Sound for all Systems
+     * Set the Sound for all Systems.
      *
      * @param string $soundUrl
      *
@@ -102,7 +100,8 @@ trait AppearanceHelpers
      *
      * @return $this
      */
-    public function icon(string $iconPath){
+    public function icon(string $iconPath)
+    {
         return $this->setParameter('chrome_web_icon', $iconPath)
             ->setParameter('chrome_icon', $iconPath)
             ->setParameter('adm_small_icon', $iconPath)
