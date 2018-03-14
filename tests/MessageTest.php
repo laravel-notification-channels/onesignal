@@ -139,6 +139,31 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     }
 
     /** @test */
+    public function it_can_set_a_web_buttons_with_chain()
+    {
+        $this->message->webButton(
+            OneSignalWebButton::create('buttonID_1')
+                ->text('buttonText_1')
+                ->url('buttonURL_1')
+                ->icon('buttonIcon_1')
+        )->webButton(
+            OneSignalWebButton::create('buttonID_2')
+                ->text('buttonText_2')
+                ->url('buttonURL_2')
+                ->icon('buttonIcon_2')
+        );
+
+        $this->assertEquals('buttonID_1', Arr::get($this->message->toArray(), 'web_buttons.0.id'));
+        $this->assertEquals('buttonText_1', Arr::get($this->message->toArray(), 'web_buttons.0.text'));
+        $this->assertEquals('buttonURL_1', Arr::get($this->message->toArray(), 'web_buttons.0.url'));
+        $this->assertEquals('buttonIcon_1', Arr::get($this->message->toArray(), 'web_buttons.0.icon'));
+        $this->assertEquals('buttonID_2', Arr::get($this->message->toArray(), 'web_buttons.1.id'));
+        $this->assertEquals('buttonText_2', Arr::get($this->message->toArray(), 'web_buttons.1.text'));
+        $this->assertEquals('buttonURL_2', Arr::get($this->message->toArray(), 'web_buttons.1.url'));
+        $this->assertEquals('buttonIcon_2', Arr::get($this->message->toArray(), 'web_buttons.1.icon'));
+    }
+
+    /** @test */
     public function it_can_set_a_button()
     {
         $this->message->button(
