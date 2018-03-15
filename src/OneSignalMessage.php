@@ -57,7 +57,7 @@ class OneSignalMessage
      */
     public function setSubject($value)
     {
-        return $this->setSubject($value);
+        return $this->setParameter('headings', $this->parseValueToArray($value));
     }
 
     /**
