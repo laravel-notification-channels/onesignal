@@ -3,17 +3,15 @@
 namespace NotificationChannels\OneSignal;
 
 use Illuminate\Support\Arr;
-use NotificationChannels\OneSignal\Traits\Categories\AppearanceHelpers;
-use NotificationChannels\OneSignal\Traits\Categories\AttachmentHelpers;
-use NotificationChannels\OneSignal\Traits\Categories\ButtonHelpers;
-use NotificationChannels\OneSignal\Traits\Categories\DeliveryHelpers;
-use NotificationChannels\OneSignal\Traits\Categories\GroupingHelpers;
+use NotificationChannels\OneSignal\Traits\{
+    Categories\AppearanceHelpers, Categories\AttachmentHelpers, Categories\ButtonHelpers, Categories\DeliveryHelpers, Categories\GroupingHelpers, Deprecated
+};
 
 
 class OneSignalMessage
 {
 
-    use AppearanceHelpers, AttachmentHelpers, ButtonHelpers, DeliveryHelpers, GroupingHelpers;
+    use AppearanceHelpers, AttachmentHelpers, ButtonHelpers, DeliveryHelpers, GroupingHelpers, Deprecated;
 
     /** @var array */
     protected $payload = [];
@@ -36,19 +34,6 @@ class OneSignalMessage
         $this->setBody($body);
     }
 
-    /**
-     * Set the message body.
-     *
-     * @param mixed $value
-     *
-     * @deprecated use setBody instead
-     *             
-     * @return $this
-     */
-    public function body($value)
-    {
-        return $this->setBody($value);
-    }
 
     /**
      * Set the message body.
@@ -62,19 +47,6 @@ class OneSignalMessage
         return $this->setParameter('contents', $this->parseValueToArray($value));
     }
 
-    /**
-     * Set the message subject.
-     *
-     * @param mixed $value
-     *
-     * @deprecated Use setSubject instead
-     *
-     * @return $this
-     */
-    public function subject($value)
-    {
-        return $this->setParameter('headings', $this->parseValueToArray($value));
-    }
 
     /**
      * Set the message subject.
@@ -98,19 +70,6 @@ class OneSignalMessage
         return (is_array($value)) ? $value : ['en' => $value];
     }
 
-    /**
-     * Set the message url.
-     *
-     * @param string $value
-     *
-     * @deprecated use setUrl Instead
-     *
-     * @return $this
-     */
-    public function url($value)
-    {
-        return $this->setUrl($value);
-    }
 
     /**
      * Set additional data.
