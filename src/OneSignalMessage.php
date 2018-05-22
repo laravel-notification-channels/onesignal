@@ -4,14 +4,14 @@ namespace NotificationChannels\OneSignal;
 
 use Illuminate\Support\Arr;
 use NotificationChannels\OneSignal\Traits\{
-    Categories\AppearanceHelpers, Categories\AttachmentHelpers, Categories\ButtonHelpers, Categories\DeliveryHelpers, Categories\GroupingHelpers, Deprecated
+    Categories\AppearanceHelpers, Categories\AttachmentHelpers, Categories\ButtonHelpers, Categories\DeliveryHelpers, Categories\GroupingHelpers, Categories\SilentHelpers, Deprecated
 };
 
 
 class OneSignalMessage
 {
 
-    use AppearanceHelpers, AttachmentHelpers, ButtonHelpers, DeliveryHelpers, GroupingHelpers, Deprecated;
+    use AppearanceHelpers, AttachmentHelpers, ButtonHelpers, DeliveryHelpers, GroupingHelpers, SilentHelpers, Deprecated;
 
     /** @var array */
     protected $payload = [];
