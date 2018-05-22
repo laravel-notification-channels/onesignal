@@ -165,4 +165,23 @@ class ChannelTest extends TestCase
         $channel_response = $this->channel->send(new EmptyNotifiable(), new TestNotification());
         $this->assertNull($channel_response);
     }
+
+    public function it_can_send_a_silent_notification()
+    {
+        $response = new Response(200);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with([
+                'content_available' => 1,
+                'data.action' => 'reload',
+                'data.target' => 'inbox',
+                'include_player_ids' => collect('player_id'),
+            ])
+            ->andReturn($response);
+
+        $channel_response = $this->channel->send(new Notifiable(), new TestSilentNotification());
+
+        $this->assertInstanceOf(ResponseInterface::class, $channel_response);
+    }
 }
