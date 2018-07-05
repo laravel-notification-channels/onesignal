@@ -22,7 +22,13 @@ class OneSignalPayloadFactory
         if (static::isTargetingEmail($targeting)) {
             $payload['filters'] = collect([['field' => 'email', 'value' => $targeting['email']]]);
         } elseif (static::isTargetingTags($targeting)) {
-            $payload['tags'] = collect([$targeting['tags']]);
+            $array = $targeting['tags'];
+            $res = count($array) == count($array, COUNT_RECURSIVE);
+            if ($res) {
+                $payload['tags'] = collect([$targeting['tags']]);
+            } else {
+                $payload['tags'] = collect($targeting['tags']);
+            }
         } else {
             $payload['include_player_ids'] = collect($targeting);
         }

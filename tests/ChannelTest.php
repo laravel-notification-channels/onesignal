@@ -157,6 +157,33 @@ class ChannelTest extends TestCase
     }
 
     /** @test */
+    public function it_can_send_a_notification_with_multiple_tags()
+    {
+        $response = new Response(200);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with([
+                'contents' => ['en' => 'Body'],
+                'headings' => ['en' => 'Subject'],
+                'url' => 'URL',
+                'chrome_web_icon' => 'Icon',
+                'chrome_icon' => 'Icon',
+                'adm_small_icon' => 'Icon',
+                'small_icon' => 'Icon',
+                'tags' => collect([
+                    ['key' => 'device_uuid', 'relation' => '=', 'value' => '123e4567-e89b-12d3-a456-426655440000'],
+                    ['key' => 'role', 'relation' => '=', 'value' => 'admin']
+                ]),
+            ])
+            ->andReturn($response);
+
+        $channel_response = $this->channel->send(new NotifiableMultipleTags(), new TestNotification());
+
+        $this->assertInstanceOf(ResponseInterface::class, $channel_response);
+    }
+
+    /** @test */
     public function it_sends_nothing_and_returns_null_when_player_id_empty()
     {
         $this->oneSignal->shouldReceive('sendNotificationCustom')
