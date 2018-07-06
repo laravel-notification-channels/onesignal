@@ -23,7 +23,7 @@ class OneSignalPayloadFactory
             $payload['filters'] = collect([['field' => 'email', 'value' => $targeting['email']]]);
         } elseif (static::isTargetingTags($targeting)) {
             $array = $targeting['tags'];
-            $res = count($array) == count($array, COUNT_RECURSIVE);
+            $res   = count($array) == count($array, COUNT_RECURSIVE);
             if ($res) {
                 $payload['tags'] = collect([$targeting['tags']]);
             } else {

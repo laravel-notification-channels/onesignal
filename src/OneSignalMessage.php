@@ -3,14 +3,16 @@
 namespace NotificationChannels\OneSignal;
 
 use Illuminate\Support\Arr;
-use NotificationChannels\OneSignal\Traits\{
-    Categories\AppearanceHelpers, Categories\AttachmentHelpers, Categories\ButtonHelpers, Categories\DeliveryHelpers, Categories\GroupingHelpers, Categories\SilentHelpers, Deprecated
-};
-
+use NotificationChannels\OneSignal\Traits\Deprecated;
+use NotificationChannels\OneSignal\Traits\Categories\ButtonHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\SilentHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\DeliveryHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\GroupingHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\AppearanceHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\AttachmentHelpers;
 
 class OneSignalMessage
 {
-
     use AppearanceHelpers, AttachmentHelpers, ButtonHelpers, DeliveryHelpers, GroupingHelpers, SilentHelpers, Deprecated;
 
     /** @var array */
@@ -34,7 +36,6 @@ class OneSignalMessage
         $this->setBody($body);
     }
 
-
     /**
      * Set the message body.
      *
@@ -46,7 +47,6 @@ class OneSignalMessage
     {
         return $this->setParameter('contents', $this->parseValueToArray($value));
     }
-
 
     /**
      * Set the message subject.
@@ -69,7 +69,6 @@ class OneSignalMessage
     {
         return (is_array($value)) ? $value : ['en' => $value];
     }
-
 
     /**
      * Set additional data.

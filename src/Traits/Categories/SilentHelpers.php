@@ -1,12 +1,13 @@
 <?php
 
 namespace NotificationChannels\OneSignal\Traits\Categories;
+
 use Illuminate\Support\Arr;
 
 trait SilentHelpers
 {
     /**
-     * Enables silent mode
+     * Enables silent mode.
      *
      * @return $this
      */

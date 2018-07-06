@@ -14,6 +14,7 @@ trait AttachmentHelpers
     public function setIosAttachment($imageUrl)
     {
         $imageUrl = is_array($imageUrl) ? $imageUrl : ['id1' => $imageUrl];
+
         return $this->setParameter('ios_attachments', $imageUrl);
     }
 
