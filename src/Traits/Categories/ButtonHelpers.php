@@ -7,8 +7,6 @@ use NotificationChannels\OneSignal\OneSignalWebButton;
 
 trait ButtonHelpers
 {
-
-
     /**
      * Add a web button to the message.
      *
@@ -37,8 +35,6 @@ trait ButtonHelpers
         return $this;
     }
 
-
-
     /**
      * Add a native button to the message.
      *
@@ -50,7 +46,6 @@ trait ButtonHelpers
     {
         return $this->setParameter('buttons', array_merge($this->getParameter('buttons', []), [$button->toArray()]));
     }
-
 
     /**
      * Adds more than one native button to the message.

@@ -151,6 +151,7 @@ class MessageTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('buttonText', Arr::get($this->message->toArray(), 'buttons.0.text'));
         $this->assertEquals('buttonIcon', Arr::get($this->message->toArray(), 'buttons.0.icon'));
     }
+
     /** @test */
     public function it_can_set_a_web_buttons_with_chain()
     {

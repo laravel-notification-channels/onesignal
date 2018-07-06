@@ -39,7 +39,6 @@ class OneSignalPayloadFactory
      *
      * @return bool
      */
-
     protected static function isTargetingIncludedSegments($targeting)
     {
         return is_array($targeting) && array_key_exists('included_segments', $targeting);
@@ -50,7 +49,6 @@ class OneSignalPayloadFactory
      *
      * @return bool
      */
-
     protected static function isTargetingExcludedSegments($targeting)
     {
         return is_array($targeting) && array_key_exists('excluded_segments', $targeting);
