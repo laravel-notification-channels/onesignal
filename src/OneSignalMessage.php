@@ -223,8 +223,6 @@ class OneSignalMessage
     public function toArray()
     {
         $message = [
-            'contents' => ['en' => $this->body],
-            'headings' => $this->subjectToArray(),
             'url' => $this->url,
             'buttons' => $this->buttons,
             'web_buttons' => $this->webButtons,
@@ -240,6 +238,17 @@ class OneSignalMessage
 
         foreach ($this->data as $data => $value) {
             Arr::set($message, 'data.'.$data, $value);
+        }
+
+        if (isset($message['template_id'])) {
+            $inc_contents = false;
+        } else {
+            $inc_contents = true;
+        }
+
+        if ($inc_contents) {
+            $message['contents'] = ['en' => $this->body];
+            $message['headings'] = $this->subjectToArray();
         }
 
         return $message;
