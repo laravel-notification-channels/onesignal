@@ -64,7 +64,7 @@ class OneSignalMessage
     /**
      * Set the message template_id
      *
-     * @param string $valye
+     * @param string $value
      *
      * @return $this
      */
