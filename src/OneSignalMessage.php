@@ -70,6 +70,7 @@ class OneSignalMessage
      */
     public function setTemplate($value)
     {
+        Arr::forget($this->payload, 'contents');
         return $this->setParameter('template_id', $value);
     }
 
