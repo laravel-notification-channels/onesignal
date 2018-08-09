@@ -60,6 +60,20 @@ class OneSignalMessage
         return $this->setParameter('headings', $this->parseValueToArray($value));
     }
 
+
+    /**
+     * Set the message template_id
+     *
+     * @param string $value
+     *
+     * @return $this
+     */
+    public function setTemplate($value)
+    {
+        Arr::forget($this->payload, 'contents');
+        return $this->setParameter('template_id', $value);
+    }
+
     /**
      * @param mixed $value
      *
