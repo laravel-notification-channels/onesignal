@@ -7,8 +7,6 @@ use NotificationChannels\OneSignal\OneSignalWebButton;
 
 trait ButtonHelpers
 {
-
-
     /**
      * Add a web button to the message.
      *
@@ -36,8 +34,6 @@ trait ButtonHelpers
 
         return $this;
     }
-
-
 
     /**
      * Add a native button to the message.
