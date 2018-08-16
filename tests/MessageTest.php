@@ -37,7 +37,7 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     /** @test */
     public function it_can_set_the_body()
     {
-        $this->message->body('myBody');
+        $this->message->setBody('myBody');
 
         $this->assertEquals('myBody', Arr::get($this->message->toArray(), 'contents.en'));
     }
@@ -45,7 +45,7 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     /** @test */
     public function it_can_set_the_subject()
     {
-        $this->message->subject('mySubject');
+        $this->message->setSubject('mySubject');
 
         $this->assertEquals('mySubject', Arr::get($this->message->toArray(), 'headings.en'));
     }
@@ -53,13 +53,13 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     /** @test */
     public function it_does_not_append_empty_subject_value_when_subject_is_null()
     {
-        $this->assertEquals([], Arr::get($this->message->toArray(), 'headings'));
+        $this->assertEquals(null, Arr::get($this->message->toArray(), 'headings'));
     }
 
     /** @test */
     public function it_can_set_the_url()
     {
-        $this->message->url('myURL');
+        $this->message->setUrl('myURL');
 
         $this->assertEquals('myURL', Arr::get($this->message->toArray(), 'url'));
     }
@@ -114,7 +114,7 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     /** @test */
     public function it_can_set_the_icon()
     {
-        $this->message->icon('myIcon');
+        $this->message->setIcon('myIcon');
 
         $this->assertEquals('myIcon', Arr::get($this->message->toArray(), 'chrome_web_icon'));
         $this->assertEquals('myIcon', Arr::get($this->message->toArray(), 'chrome_icon'));
@@ -141,7 +141,7 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     /** @test */
     public function it_can_set_a_button()
     {
-        $this->message->button(
+        $this->message->setButton(
             OneSignalButton::create('buttonID')
                 ->text('buttonText')
                 ->icon('buttonIcon')
@@ -150,6 +150,31 @@ class MessageTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('buttonID', Arr::get($this->message->toArray(), 'buttons.0.id'));
         $this->assertEquals('buttonText', Arr::get($this->message->toArray(), 'buttons.0.text'));
         $this->assertEquals('buttonIcon', Arr::get($this->message->toArray(), 'buttons.0.icon'));
+    }
+
+    /** @test */
+    public function it_can_set_a_web_buttons_with_chain()
+    {
+        $this->message->setWebButton(
+            OneSignalWebButton::create('buttonID_1')
+                ->text('buttonText_1')
+                ->url('buttonURL_1')
+                ->icon('buttonIcon_1')
+        )->setWebButton(
+            OneSignalWebButton::create('buttonID_2')
+                ->text('buttonText_2')
+                ->url('buttonURL_2')
+                ->icon('buttonIcon_2')
+        );
+
+        $this->assertEquals('buttonID_1', Arr::get($this->message->toArray(), 'web_buttons.0.id'));
+        $this->assertEquals('buttonText_1', Arr::get($this->message->toArray(), 'web_buttons.0.text'));
+        $this->assertEquals('buttonURL_1', Arr::get($this->message->toArray(), 'web_buttons.0.url'));
+        $this->assertEquals('buttonIcon_1', Arr::get($this->message->toArray(), 'web_buttons.0.icon'));
+        $this->assertEquals('buttonID_2', Arr::get($this->message->toArray(), 'web_buttons.1.id'));
+        $this->assertEquals('buttonText_2', Arr::get($this->message->toArray(), 'web_buttons.1.text'));
+        $this->assertEquals('buttonURL_2', Arr::get($this->message->toArray(), 'web_buttons.1.url'));
+        $this->assertEquals('buttonIcon_2', Arr::get($this->message->toArray(), 'web_buttons.1.icon'));
     }
 
     /** @test */
