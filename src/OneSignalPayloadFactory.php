@@ -33,7 +33,6 @@ class OneSignalPayloadFactory
             $payload['included_segments'] = collect($targeting['included_segments']);
         } elseif (static::isTargetingExcludedSegments($targeting)) {
             $payload['excluded_segments'] = collect($targeting['excluded_segments']);
-
         } else {
             $payload['include_player_ids'] = collect($targeting);
         }
