@@ -47,7 +47,6 @@ trait ButtonHelpers
         return $this->setParameter('buttons', array_merge($this->getParameter('buttons', []), [$button->toArray()]));
     }
 
-
     /**
      * Adds more than one native button to the message.
      *

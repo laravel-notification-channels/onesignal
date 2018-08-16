@@ -4,7 +4,6 @@ namespace NotificationChannels\OneSignal\Traits\Categories;
 
 trait AppearanceHelpers
 {
-
     /**
      * Set the iOS badge increment count.
      *

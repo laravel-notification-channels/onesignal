@@ -3,14 +3,13 @@
 namespace NotificationChannels\OneSignal;
 
 use Illuminate\Support\Arr;
-use NotificationChannels\OneSignal\Traits\Categories\AppearanceHelpers;
-use NotificationChannels\OneSignal\Traits\Categories\AttachmentHelpers;
+use NotificationChannels\OneSignal\Traits\Deprecated;
 use NotificationChannels\OneSignal\Traits\Categories\ButtonHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\SilentHelpers;
 use NotificationChannels\OneSignal\Traits\Categories\DeliveryHelpers;
 use NotificationChannels\OneSignal\Traits\Categories\GroupingHelpers;
-use NotificationChannels\OneSignal\Traits\Categories\SilentHelpers;
-use NotificationChannels\OneSignal\Traits\Deprecated;
-
+use NotificationChannels\OneSignal\Traits\Categories\AppearanceHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\AttachmentHelpers;
 
 class OneSignalMessage
 {
@@ -71,6 +70,7 @@ class OneSignalMessage
     public function setTemplate($value)
     {
         Arr::forget($this->payload, 'contents');
+
         return $this->setParameter('template_id', $value);
     }
 
@@ -83,7 +83,6 @@ class OneSignalMessage
     {
         return (is_array($value)) ? $value : ['en' => $value];
     }
-
 
     /**
      * Set additional data.

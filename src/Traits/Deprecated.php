@@ -1,4 +1,5 @@
 <?php
+
 namespace NotificationChannels\OneSignal\Traits;
 
 use NotificationChannels\OneSignal\OneSignalButton;
