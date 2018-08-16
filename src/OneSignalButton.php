@@ -65,7 +65,7 @@ class OneSignalButton
     public function toArray()
     {
         return [
-            'id' => $this->id,
+            'id'   => $this->id,
             'text' => $this->text,
             'icon' => $this->icon,
         ];
