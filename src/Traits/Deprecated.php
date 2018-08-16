@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lukaskammerling
- * Date: 15.03.18
- * Time: 09:03.
- */
 
 namespace NotificationChannels\OneSignal\Traits;
 
