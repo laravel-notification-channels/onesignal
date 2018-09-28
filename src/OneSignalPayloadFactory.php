@@ -21,6 +21,8 @@ class OneSignalPayloadFactory
 
         if (static::isTargetingEmail($targeting)) {
             $payload['filters'] = collect([['field' => 'email', 'value' => $targeting['email']]]);
+        } elseif (static::isTargetingFilters($targeting)) {
+            $payload['filters'] = collect($targeting['filters']);
         } elseif (static::isTargetingTags($targeting)) {
             $array = $targeting['tags'];
             $res = count($array) == count($array, COUNT_RECURSIVE);
@@ -78,5 +80,15 @@ class OneSignalPayloadFactory
     protected static function isTargetingTags($targeting)
     {
         return is_array($targeting) && array_key_exists('tags', $targeting);
+    }
+
+    /**
+     * @param mixed $targeting
+     *
+     * @return bool
+     */
+    protected static function isTargetingFilters($targeting)
+    {
+        return is_array($targeting) && array_key_exists('filters', $targeting);
     }
 }
