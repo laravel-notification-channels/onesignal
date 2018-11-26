@@ -23,7 +23,7 @@ class OneSignalChannel
      * @param mixed $notifiable
      * @param \Illuminate\Notifications\Notification $notification
      *
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return null|\Psr\Http\Message\ResponseInterface
      * @throws \NotificationChannels\OneSignal\Exceptions\CouldNotSendNotification
      */
     public function send($notifiable, Notification $notification)
@@ -47,7 +47,7 @@ class OneSignalChannel
     /**
      * @param mixed $notifiable
      * @param \Illuminate\Notifications\Notification $notification
-     * @param mixed $targeting
+     * @param string|array $userIds
      *
      * @return array
      */
