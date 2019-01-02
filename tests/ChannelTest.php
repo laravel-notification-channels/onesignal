@@ -235,6 +235,32 @@ class ChannelTest extends TestCase
         $this->assertInstanceOf(ResponseInterface::class, $channel_response);
     }
 
+    /**
+     * @test
+     */
+    public function it_can_send_a_notification_with_external_ids()
+    {
+        $response = new Response(200);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with([
+                'contents'                  => ['en' => 'Body'],
+                'headings'                  => ['en' => 'Subject'],
+                'url'                       => 'URL',
+                'chrome_web_icon'           => 'Icon',
+                'chrome_icon'               => 'Icon',
+                'adm_small_icon'            => 'Icon',
+                'small_icon'                => 'Icon',
+                'include_external_user_ids' => collect(['external_id']),
+            ])
+            ->andReturn($response);
+
+        $channel_response = $this->channel->send(new NotifiableIncludesExternalIds(), new TestNotification());
+
+        $this->assertInstanceOf(ResponseInterface::class, $channel_response);
+    }
+
     /** @test */
     public function it_sends_nothing_and_returns_null_when_player_id_empty()
     {
