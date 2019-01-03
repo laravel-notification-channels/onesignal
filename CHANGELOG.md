@@ -2,7 +2,7 @@
 
 All Notable changes to `onesignal` will be documented in this file
 
-## 2.0.0-rc1 - unreleased
+## 2.0.0-RC1 - 2019-01-03
 - [Refactor] Switch to trait based class ordering ([#58](https://github.com/laravel-notification-channels/onesignal/pull/58))
 - [Feature] Allow sending to multiple tags ([#73](https://github.com/laravel-notification-channels/onesignal/pull/73))
 - [Feature] Allow sending with an empty subject ([#56](https://github.com/laravel-notification-channels/onesignal/pull/56))
