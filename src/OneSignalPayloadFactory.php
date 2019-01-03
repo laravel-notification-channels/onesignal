@@ -33,6 +33,8 @@ class OneSignalPayloadFactory
             $payload['included_segments'] = collect($targeting['included_segments']);
         } elseif (static::isTargetingExcludedSegments($targeting)) {
             $payload['excluded_segments'] = collect($targeting['excluded_segments']);
+        } elseif (static::isTargetingExternalUserIds($targeting)) {
+            $payload['include_external_user_ids'] = collect($targeting['include_external_user_ids']);
         } else {
             $payload['include_player_ids'] = collect($targeting);
         }
@@ -48,6 +50,16 @@ class OneSignalPayloadFactory
     protected static function isTargetingIncludedSegments($targeting)
     {
         return is_array($targeting) && array_key_exists('included_segments', $targeting);
+    }
+
+    /**
+     * @param mixed $targeting
+     *
+     * @return bool
+     */
+    protected static function isTargetingExternalUserIds($targeting)
+    {
+        return is_array($targeting) && array_key_exists('include_external_user_ids', $targeting);
     }
 
     /**
