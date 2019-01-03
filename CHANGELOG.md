@@ -1,6 +1,17 @@
 # Changelog
 
 All Notable changes to `onesignal` will be documented in this file
+
+## 2.0.0-rc1 - unreleased
+- [Refactor] Switch to trait based class ordering https://github.com/laravel-notification-channels/onesignal/pull/58
+- [Feature] Allow sending to multiple tags https://github.com/laravel-notification-channels/onesignal/pull/73
+- [Feature] Allow sending with an empty subject https://github.com/laravel-notification-channels/onesignal/pull/56
+- [Feature] Allow more customisation of the notifiction (https://github.com/laravel-notification-channels/onesignal/pull/55 & https://github.com/laravel-notification-channels/onesignal/pull/58 )
+- [Feature] Add support for silent messages https://github.com/laravel-notification-channels/onesignal/pull/67
+- [Feature] Add support for setting a template https://github.com/laravel-notification-channels/onesignal/pull/77
+- [Feature] Allow sending to segments baded on "included and excluded" https://github.com/laravel-notification-channels/onesignal/pull/72
+- [Feature] Allow sending to external user IDs https://github.com/laravel-notification-channels/onesignal/pull/86
+
 ## 1.2.0 - 2018-03-09
 - [Feature] Added targetting per Tags https://github.com/laravel-notification-channels/onesignal/pull/48
 - [Refactor] Implement payload Factory https://github.com/laravel-notification-channels/onesignal/pull/50
