@@ -13,7 +13,7 @@ All Notable changes to `onesignal` will be documented in this file
 - [Feature] Allow sending to external user IDs ([#86](https://github.com/laravel-notification-channels/onesignal/pull/86))
 
 ## 1.2.0 - 2018-03-09
-- [Feature] Added targeting per Tags ([#48](https://github.com/laravel-notification-channels/onesignal/pull/48))
+- [Feature] Added targetting per Tags ([#48](https://github.com/laravel-notification-channels/onesignal/pull/48))
 - [Refactor] Implement payload Factory ([#50](https://github.com/laravel-notification-channels/onesignal/pull/50))
 
 ## 1.1.1 - 2018-02-09
