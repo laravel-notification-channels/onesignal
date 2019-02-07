@@ -2,6 +2,9 @@
 
 All Notable changes to `onesignal` will be documented in this file
 
+## 2.0.0-RC2 - 2019-02-07
+- Update the underlying **berkayk/onesignal-laravel** Package to v1.0.1 ([#60](https://github.com/laravel-notification-channels/onesignal/pull/60))
+
 ## 2.0.0-RC1 - 2019-01-03
 - [Refactor] Switch to trait based class ordering ([#58](https://github.com/laravel-notification-channels/onesignal/pull/58))
 - [Feature] Allow sending to multiple tags ([#73](https://github.com/laravel-notification-channels/onesignal/pull/73))
