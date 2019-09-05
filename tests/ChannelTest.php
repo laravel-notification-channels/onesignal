@@ -18,7 +18,7 @@ class ChannelTest extends TestCase
     /** @var \NotificationChannels\OneSignal\OneSignalChannel */
     protected $channel;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->oneSignal = Mockery::mock(OneSignalClient::class);
@@ -26,7 +26,7 @@ class ChannelTest extends TestCase
         $this->channel = new OneSignalChannel($this->oneSignal);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
         parent::tearDown();
