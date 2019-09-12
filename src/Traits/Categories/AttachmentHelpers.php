@@ -53,8 +53,8 @@ trait AttachmentHelpers
     {
         return $this->setParameter('chrome_big_picture', $imageUrl);
     }
-    
-     /**
+
+    /**
      * Set the Web Image only for Chrome.
      *
      * @param string $imageUrl
@@ -65,6 +65,7 @@ trait AttachmentHelpers
     {
         return $this->setParameter('chrome_web_image', $imageUrl);
     }
+
     /**
      * Set the additional URL for all Platforms.
      *
