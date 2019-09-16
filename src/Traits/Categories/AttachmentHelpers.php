@@ -55,6 +55,18 @@ trait AttachmentHelpers
     }
 
     /**
+     * Set the Web Image only for Chrome.
+     *
+     * @param string $imageUrl
+     *
+     * @return $this
+     */
+    public function setChromeWebImage(string $imageUrl)
+    {
+        return $this->setParameter('chrome_web_image', $imageUrl);
+    }
+
+    /**
      * Set the additional URL for all Platforms.
      *
      * @param string $url
@@ -78,6 +90,7 @@ trait AttachmentHelpers
         return $this->setIosAttachment($imageUrl)
             ->setAndroidBigPicture($imageUrl)
             ->setAmazonBigPicture($imageUrl)
-            ->setChromeBigPicture($imageUrl);
+            ->setChromeBigPicture($imageUrl)
+            ->setChromeWebImage($imageUrl);
     }
 }
