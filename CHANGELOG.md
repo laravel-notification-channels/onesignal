@@ -2,6 +2,10 @@
 
 All Notable changes to `onesignal` will be documented in this file
 
+## 2.0.0 - Not released yet
+- Add compatibility for Laravel 6
+- Remove testing on old PHP versions (7.0,7.1) and test on 7.3 
+
 ## 2.0.0-RC2 - 2019-02-07
 - Update the underlying **berkayk/onesignal-laravel** Package to v1.0.1 ([#60](https://github.com/laravel-notification-channels/onesignal/pull/60))
 

@@ -12,7 +12,7 @@ class MessageTest extends \PHPUnit\Framework\TestCase
     /** @var \NotificationChannels\OneSignal\OneSignalMessage */
     protected $message;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->message = new OneSignalMessage();
