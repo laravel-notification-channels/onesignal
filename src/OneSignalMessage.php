@@ -3,13 +3,13 @@
 namespace NotificationChannels\OneSignal;
 
 use Illuminate\Support\Arr;
-use NotificationChannels\OneSignal\Traits\Deprecated;
-use NotificationChannels\OneSignal\Traits\Categories\ButtonHelpers;
-use NotificationChannels\OneSignal\Traits\Categories\SilentHelpers;
-use NotificationChannels\OneSignal\Traits\Categories\DeliveryHelpers;
-use NotificationChannels\OneSignal\Traits\Categories\GroupingHelpers;
 use NotificationChannels\OneSignal\Traits\Categories\AppearanceHelpers;
 use NotificationChannels\OneSignal\Traits\Categories\AttachmentHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\ButtonHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\DeliveryHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\GroupingHelpers;
+use NotificationChannels\OneSignal\Traits\Categories\SilentHelpers;
+use NotificationChannels\OneSignal\Traits\Deprecated;
 
 class OneSignalMessage
 {
