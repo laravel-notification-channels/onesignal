@@ -2,13 +2,13 @@
 
 namespace NotificationChannels\OneSignal\Test;
 
-use Mockery;
-use GuzzleHttp\Psr7\Response;
-use Orchestra\Testbench\TestCase;
 use Berkayk\OneSignal\OneSignalClient;
-use Psr\Http\Message\ResponseInterface;
-use NotificationChannels\OneSignal\OneSignalChannel;
+use GuzzleHttp\Psr7\Response;
+use Mockery;
 use NotificationChannels\OneSignal\Exceptions\CouldNotSendNotification;
+use NotificationChannels\OneSignal\OneSignalChannel;
+use Orchestra\Testbench\TestCase;
+use Psr\Http\Message\ResponseInterface;
 
 class ChannelTest extends TestCase
 {

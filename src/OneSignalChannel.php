@@ -3,9 +3,9 @@
 namespace NotificationChannels\OneSignal;
 
 use Berkayk\OneSignal\OneSignalClient;
-use Psr\Http\Message\ResponseInterface;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\OneSignal\Exceptions\CouldNotSendNotification;
+use Psr\Http\Message\ResponseInterface;
 
 class OneSignalChannel
 {
