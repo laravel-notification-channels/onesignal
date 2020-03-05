@@ -2,6 +2,10 @@
 
 All Notable changes to `onesignal` will be documented in this file
 
+## 2.1.0 - 2020-03-05
+- Add compatibility for Laravel 7
+- Add testing ong PHP 7.3
+
 ## 2.0.0 - 2019-09-17
 - Add compatibility for Laravel 6
 - Remove testing on old PHP versions (7.0,7.1) and test on 7.3 
