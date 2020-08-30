@@ -80,9 +80,9 @@ class AccountApproved extends Notification
     public function toOneSignal($notifiable)
     {
         return OneSignalMessage::create()
-            ->subject("Your {$notifiable->service} account was approved!")
-            ->body("Click here to see details.")
-            ->url('http://onesignal.com')
+            ->setSubject("Your {$notifiable->service} account was approved!")
+            ->setBody("Click here to see details.")
+            ->setUrl('http://onesignal.com')
             ->webButton(
                 OneSignalWebButton::create('link-1')
                     ->text('Click here')
