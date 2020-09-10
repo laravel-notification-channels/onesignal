@@ -80,9 +80,9 @@ class AccountApproved extends Notification
     public function toOneSignal($notifiable)
     {
         return OneSignalMessage::create()
-            ->subject("Your {$notifiable->service} account was approved!")
-            ->body("Click here to see details.")
-            ->url('http://onesignal.com')
+            ->setSubject("Your {$notifiable->service} account was approved!")
+            ->setBody("Click here to see details.")
+            ->setUrl('http://onesignal.com')
             ->webButton(
                 OneSignalWebButton::create('link-1')
                     ->text('Click here')
@@ -122,10 +122,10 @@ public function routeNotificationForOneSignal()
 ```
 ### All available methods
 
-- `subject('')`: Accepts a string value for the title.
-- `body('')`: Accepts a string value for the notification body.
-- `icon('')`: Accepts an url for the icon.
-- `url('')`: Accepts an url for the notification click event.
+- `setSubject('')`: Accepts a string value for the title.
+- `setBody('')`: Accepts a string value for the notification body.
+- `setIcon('')`: Accepts an url for the icon.
+- `setUrl('')`: Accepts an url for the notification click event.
 - `webButton(OneSignalWebButton $button)`: Allows you to add action buttons to the notification (Chrome 48+ (web push) only).
 - `button(OneSignalButton $button)`: Allows you to add buttons to the notification (Supported by iOS 8.0 and Android 4.1+ devices. Icon only works for Android).
 - `setData($key, $value)`: Allows you to set additional data for the message payload. For more information check the [OneSignal documentation](https://documentation.onesignal.com/reference).
