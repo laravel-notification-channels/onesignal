@@ -112,6 +112,7 @@ public function routeNotificationForOneSignal()
     return ['email' => 'example@example.com'];
 }
 ```
+
 If you want to send the notification based on the OneSignal "Tags" feature just return an array with the index "tags".
 
 ```php
@@ -120,6 +121,16 @@ public function routeNotificationForOneSignal()
     return ['tags' => ['key' => 'device_uuid', 'relation' => '=', 'value' => '1234567890-abcdefgh-1234567']];
 }
 ```
+
+If you want to send the notification based on an external user id you set using the `setExternalUserId` feature. This makes it really easy to target users based on their Laravel User Ids.
+
+```php
+public function routeNotificationForOneSignal()
+{
+    return ['include_external_user_ids' => $this->id];
+}
+```
+
 ### All available methods
 
 - `setSubject('')`: Accepts a string value for the title.
