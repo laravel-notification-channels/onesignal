@@ -2,9 +2,11 @@
 
 All Notable changes to `onesignal` will be documented in this file
 
+## 2.3.0 - 2021-01-05
+- Add support for PHP 8
+
 ## 2.2.0 - 2021-01-05
 - Add compatibility for Laravel 8
-- Add testing on PHP 8
 
 ## 2.1.0 - 2020-03-05
 - Add compatibility for Laravel 7
