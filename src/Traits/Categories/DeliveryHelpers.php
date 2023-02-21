@@ -7,8 +7,7 @@ trait DeliveryHelpers
     /**
      * Set the send after.
      *
-     * @param string $date
-     *
+     * @param  string  $date
      * @return $this
      */
     public function setSendAfter(string $date)
@@ -19,8 +18,7 @@ trait DeliveryHelpers
     /**
      * Set the deplayed option.
      *
-     * @param string $delayedOption
-     *
+     * @param  string  $delayedOption
      * @return $this
      */
     public function setDelayedOption(string $delayedOption)
@@ -31,8 +29,7 @@ trait DeliveryHelpers
     /**
      * Set the delivery at time of the day. Use with delayed option = timezone.
      *
-     * @param string $timeOfDay
-     *
+     * @param  string  $timeOfDay
      * @return $this
      */
     public function setDeliveryTimeOfDay(string $timeOfDay)
@@ -43,8 +40,7 @@ trait DeliveryHelpers
     /**
      * Set the Time to Live in Seconds.
      *
-     * @param int $ttl
-     *
+     * @param  int  $ttl
      * @return $this
      */
     public function setTtl(int $ttl)
@@ -55,8 +51,7 @@ trait DeliveryHelpers
     /**
      * Set the Priority.
      *
-     * @param int $priority
-     *
+     * @param  int  $priority
      * @return $this
      */
     public function setPriority(int $priority)

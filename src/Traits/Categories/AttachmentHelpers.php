@@ -7,8 +7,7 @@ trait AttachmentHelpers
     /**
      * Set an Image/more than one Image only for iOS.
      *
-     * @param string|array $imageUrl
-     *
+     * @param  string|array  $imageUrl
      * @return $this
      */
     public function setIosAttachment($imageUrl)
@@ -21,8 +20,7 @@ trait AttachmentHelpers
     /**
      * Set the Big Picture Image only for Android.
      *
-     * @param string $imageUrl
-     *
+     * @param  string  $imageUrl
      * @return $this
      */
     public function setAndroidBigPicture(string $imageUrl)
@@ -33,8 +31,7 @@ trait AttachmentHelpers
     /**
      * Set the Big Picture Image only for FireOS (Amazon).
      *
-     * @param string $imageUrl
-     *
+     * @param  string  $imageUrl
      * @return $this
      */
     public function setAmazonBigPicture(string $imageUrl)
@@ -45,8 +42,7 @@ trait AttachmentHelpers
     /**
      * Set the Big Picture Image only for Chrome.
      *
-     * @param string $imageUrl
-     *
+     * @param  string  $imageUrl
      * @return $this
      */
     public function setChromeBigPicture(string $imageUrl)
@@ -57,8 +53,7 @@ trait AttachmentHelpers
     /**
      * Set the Web Image only for Chrome.
      *
-     * @param string $imageUrl
-     *
+     * @param  string  $imageUrl
      * @return $this
      */
     public function setChromeWebImage(string $imageUrl)
@@ -69,8 +64,7 @@ trait AttachmentHelpers
     /**
      * Set the additional URL for all Platforms.
      *
-     * @param string $url
-     *
+     * @param  string  $url
      * @return $this
      */
     public function setUrl(string $url)
@@ -81,8 +75,7 @@ trait AttachmentHelpers
     /**
      * Set an image to all possible attachment variables.
      *
-     * @param string $imageUrl
-     *
+     * @param  string  $imageUrl
      * @return $this
      */
     public function setImageAttachments(string $imageUrl)
