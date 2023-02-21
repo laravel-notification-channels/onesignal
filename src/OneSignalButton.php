@@ -14,8 +14,7 @@ class OneSignalButton
     protected $icon;
 
     /**
-     * @param string $id
-     *
+     * @param  string  $id
      * @return static
      */
     public static function create($id)
@@ -24,7 +23,7 @@ class OneSignalButton
     }
 
     /**
-     * @param string $id
+     * @param  string  $id
      */
     public function __construct($id)
     {
@@ -34,8 +33,7 @@ class OneSignalButton
     /**
      * Set the message icon.
      *
-     * @param string $value
-     *
+     * @param  string  $value
      * @return $this
      */
     public function icon($value)
@@ -48,8 +46,7 @@ class OneSignalButton
     /**
      * Set the message subject.
      *
-     * @param string $value
-     *
+     * @param  string  $value
      * @return $this
      */
     public function text($value)

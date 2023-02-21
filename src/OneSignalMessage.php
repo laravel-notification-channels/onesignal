@@ -19,8 +19,7 @@ class OneSignalMessage
     protected $payload = [];
 
     /**
-     * @param string $body
-     *
+     * @param  string  $body
      * @return static
      */
     public static function create($body = '')
@@ -29,7 +28,7 @@ class OneSignalMessage
     }
 
     /**
-     * @param string $body
+     * @param  string  $body
      */
     public function __construct($body = '')
     {
@@ -39,8 +38,7 @@ class OneSignalMessage
     /**
      * Set the message body.
      *
-     * @param mixed $value
-     *
+     * @param  mixed  $value
      * @return $this
      */
     public function setBody($value)
@@ -51,8 +49,7 @@ class OneSignalMessage
     /**
      * Set the message subject.
      *
-     * @param mixed $value
-     *
+     * @param  mixed  $value
      * @return $this
      */
     public function setSubject($value)
@@ -63,8 +60,7 @@ class OneSignalMessage
     /**
      * Set the message template_id.
      *
-     * @param string $value
-     *
+     * @param  string  $value
      * @return $this
      */
     public function setTemplate($value)
@@ -75,8 +71,7 @@ class OneSignalMessage
     }
 
     /**
-     * @param mixed $value
-     *
+     * @param  mixed  $value
      * @return array
      */
     protected function parseValueToArray($value)
@@ -87,9 +82,8 @@ class OneSignalMessage
     /**
      * Set additional data.
      *
-     * @param string $key
-     * @param mixed  $value
-     *
+     * @param  string  $key
+     * @param  mixed  $value
      * @return $this
      */
     public function setData(string $key, $value)
@@ -100,9 +94,8 @@ class OneSignalMessage
     /**
      * Set parameters.
      *
-     * @param string $key
-     * @param mixed  $value
-     *
+     * @param  string  $key
+     * @param  mixed  $value
      * @return $this
      */
     public function setParameter(string $key, $value)
@@ -115,9 +108,8 @@ class OneSignalMessage
     /**
      * Get parameters.
      *
-     * @param string $key
-     * @param mixed  $default
-     *
+     * @param  string  $key
+     * @param  mixed  $default
      * @return mixed
      */
     public function getParameter(string $key, $default = null)
