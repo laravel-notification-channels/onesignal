@@ -10,8 +10,7 @@ trait ButtonHelpers
     /**
      * Add a web button to the message.
      *
-     * @param OneSignalWebButton $button
-     *
+     * @param  OneSignalWebButton  $button
      * @return $this
      */
     public function setWebButton(OneSignalWebButton $button)
@@ -23,7 +22,6 @@ trait ButtonHelpers
      * Adds more than one web button to the message.
      *
      * @param array[OnSignalWebButton] $buttons
-     *
      * @return $this
      */
     public function setWebButtons(array $buttons)
@@ -38,8 +36,7 @@ trait ButtonHelpers
     /**
      * Add a native button to the message.
      *
-     * @param OneSignalButton $button
-     *
+     * @param  OneSignalButton  $button
      * @return $this
      */
     public function setButton(OneSignalButton $button)
@@ -50,8 +47,7 @@ trait ButtonHelpers
     /**
      * Adds more than one native button to the message.
      *
-     * @param array $buttons
-     *
+     * @param  array  $buttons
      * @return $this
      */
     public function setButtons(array $buttons)

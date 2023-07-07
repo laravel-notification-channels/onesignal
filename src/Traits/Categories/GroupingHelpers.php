@@ -7,9 +7,8 @@ trait GroupingHelpers
     /**
      * Set the Android Grouping Parameters.
      *
-     * @param string $group
-     * @param array  $groupMessage
-     *
+     * @param  string  $group
+     * @param  array  $groupMessage
      * @return $this
      */
     public function setAndroidGroup(string $group, array $groupMessage)
@@ -21,9 +20,8 @@ trait GroupingHelpers
     /**
      * Set the Amazon (FireOS) Grouping Parameters.
      *
-     * @param string $group
-     * @param array  $groupMessage
-     *
+     * @param  string  $group
+     * @param  array  $groupMessage
      * @return $this
      */
     public function setAmazonGroup(string $group, array $groupMessage)
@@ -35,9 +33,8 @@ trait GroupingHelpers
     /**
      * Set the Grouping Parameters for all available Systems (currently Android and Amazon (FireOs)).
      *
-     * @param string $group
-     * @param array  $groupMessage
-     *
+     * @param  string  $group
+     * @param  array  $groupMessage
      * @return $this
      */
     public function setGroup(string $group, array $groupMessage)

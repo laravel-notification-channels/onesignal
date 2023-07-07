@@ -10,7 +10,7 @@ trait Deprecated
     /**
      * Set the message body.
      *
-     * @param mixed $value
+     * @param  mixed  $value
      *
      * @deprecated use setBody instead
      *
@@ -24,7 +24,7 @@ trait Deprecated
     /**
      * Set the message subject.
      *
-     * @param mixed $value
+     * @param  mixed  $value
      *
      * @deprecated Use setSubject instead
      *
@@ -38,7 +38,7 @@ trait Deprecated
     /**
      * Set the message url.
      *
-     * @param string $value
+     * @param  string  $value
      *
      * @deprecated use setUrl Instead
      *
@@ -52,7 +52,7 @@ trait Deprecated
     /**
      * Add a web button to the message.
      *
-     * @param OneSignalWebButton $button
+     * @param  OneSignalWebButton  $button
      *
      * @deprecated use setWebButton instead
      *
@@ -80,9 +80,10 @@ trait Deprecated
     /**
      * Add a native button to the message.
      *
-     * @param OneSignalButton $button
+     * @param  OneSignalButton  $button
      *
      * @deprecated use setButton instead
+     *
      * @return $this
      */
     public function button(OneSignalButton $button)
@@ -93,7 +94,7 @@ trait Deprecated
     /**
      * Adds more than one native button to the message.
      *
-     * @param array $buttons
+     * @param  array  $buttons
      *
      * @deprecated use setButtons instead
      *

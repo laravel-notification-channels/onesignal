@@ -9,10 +9,9 @@ class OneSignalPayloadFactory
     /**
      * Make a one signal notification payload.
      *
-     * @param mixed $notifiable
-     * @param \Illuminate\Notifications\Notification $notification
-     * @param mixed $targeting
-     *
+     * @param  mixed  $notifiable
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @param  mixed  $targeting
      * @return array
      */
     public static function make($notifiable, Notification $notification, $targeting): array
@@ -44,8 +43,7 @@ class OneSignalPayloadFactory
     }
 
     /**
-     * @param mixed $targeting
-     *
+     * @param  mixed  $targeting
      * @return bool
      */
     protected static function isTargetingIncludedSegments($targeting)
@@ -54,8 +52,7 @@ class OneSignalPayloadFactory
     }
 
     /**
-     * @param mixed $targeting
-     *
+     * @param  mixed  $targeting
      * @return bool
      */
     protected static function isTargetingExternalUserIds($targeting)
@@ -64,8 +61,7 @@ class OneSignalPayloadFactory
     }
 
     /**
-     * @param mixed $targeting
-     *
+     * @param  mixed  $targeting
      * @return bool
      */
     protected static function isTargetingExcludedSegments($targeting)
@@ -74,8 +70,7 @@ class OneSignalPayloadFactory
     }
 
     /**
-     * @param mixed $targeting
-     *
+     * @param  mixed  $targeting
      * @return bool
      */
     protected static function isTargetingEmail($targeting)
@@ -84,8 +79,7 @@ class OneSignalPayloadFactory
     }
 
     /**
-     * @param mixed $targeting
-     *
+     * @param  mixed  $targeting
      * @return bool
      */
     protected static function isTargetingTags($targeting)

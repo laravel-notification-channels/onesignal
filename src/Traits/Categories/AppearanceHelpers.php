@@ -7,8 +7,7 @@ trait AppearanceHelpers
     /**
      * Set the iOS badge increment count.
      *
-     * @param int $count
-     *
+     * @param  int  $count
      * @return $this
      */
     public function incrementIosBadgeCount(int $count = 1)
@@ -20,8 +19,7 @@ trait AppearanceHelpers
     /**
      * Set the iOS badge decrement count.
      *
-     * @param int $count
-     *
+     * @param  int  $count
      * @return $this
      */
     public function decrementIosBadgeCount(int $count = 1)
@@ -33,8 +31,7 @@ trait AppearanceHelpers
     /**
      * Set the iOS badge count.
      *
-     * @param int $count
-     *
+     * @param  int  $count
      * @return $this
      */
     public function setIosBadgeCount(int $count)
@@ -46,8 +43,7 @@ trait AppearanceHelpers
     /**
      * Set the iOS Sound.
      *
-     * @param string $soundUrl
-     *
+     * @param  string  $soundUrl
      * @return $this
      */
     public function setIosSound(string $soundUrl)
@@ -58,8 +54,7 @@ trait AppearanceHelpers
     /**
      * Set the Android Sound.
      *
-     * @param string $soundUrl
-     *
+     * @param  string  $soundUrl
      * @return $this
      */
     public function setAndroidSound(string $soundUrl)
@@ -70,8 +65,7 @@ trait AppearanceHelpers
     /**
      * Set the Windows Sound.
      *
-     * @param string $soundUrl
-     *
+     * @param  string  $soundUrl
      * @return $this
      */
     public function setWindowsSound(string $soundUrl)
@@ -83,8 +77,7 @@ trait AppearanceHelpers
     /**
      * Set the Sound for all Systems.
      *
-     * @param string $soundUrl
-     *
+     * @param  string  $soundUrl
      * @return $this
      */
     public function setSound(string $soundUrl)
@@ -97,7 +90,7 @@ trait AppearanceHelpers
     /**
      * Set the message icon.
      *
-     * @param string $iconPath
+     * @param  string  $iconPath
      *
      * @deprecated use setIcon instead
      *
@@ -111,8 +104,7 @@ trait AppearanceHelpers
     /**
      * Set the message icon.
      *
-     * @param string $iconPath
-     *
+     * @param  string  $iconPath
      * @return $this
      */
     public function setIcon(string $iconPath)
