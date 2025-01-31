@@ -54,6 +54,7 @@ Add your OneSignal App ID and REST API Key to your `config/services.php`:
 ...
 'onesignal' => [
     'app_id' => env('ONESIGNAL_APP_ID'),
+    'rest_api_url' => env('ONESIGNAL_REST_API_URL', 'https://api.onesignal.com'),
     'rest_api_key' => env('ONESIGNAL_REST_API_KEY'),
     'guzzle_client_timeout' => env('ONESIGNAL_GUZZLE_CLIENT_TIMEOUT', 0),
 ],
