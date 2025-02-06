@@ -26,8 +26,7 @@ class OneSignalServiceProvider extends ServiceProvider
                     $oneSignalConfig['app_id'],
                     $oneSignalConfig['rest_api_url'] ?? 'https://api.onesignal.com',
                     $oneSignalConfig['rest_api_key'],
-                    0,
-                    'm
+                    0
                 );
             });
     }
