@@ -52,8 +52,8 @@ class OneSignalPayloadFactory
      * OneSignal accepts at most 2,000 IDs per request for include_player_ids and include_external_user_ids.
      *
      * @param  mixed  $targeting  Result of routeNotificationFor('OneSignal')
-     * @param  int  $chunkSize   Max IDs per request (default 2000)
-     * @return array<array>  List of targeting arrays, one per chunk
+     * @param  int  $chunkSize  Max IDs per request (default 2000)
+     * @return array<array> List of targeting arrays, one per chunk
      */
     public static function getTargetingChunks($targeting, int $chunkSize = self::DEFAULT_CHUNK_SIZE): array
     {
@@ -74,6 +74,7 @@ class OneSignalPayloadFactory
             if (count($ids) <= $chunkSize) {
                 return [$targeting];
             }
+
             return array_chunk($ids, $chunkSize);
         }
 
