@@ -289,4 +289,60 @@ class ChannelTest extends TestCase
 
         $this->assertInstanceOf(ResponseInterface::class, $channel_response);
     }
+
+    /** @test */
+    public function it_chunks_large_player_id_list_and_sends_multiple_requests()
+    {
+        $response = new Response(200);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with(Mockery::on(function ($payload) {
+                return isset($payload['include_player_ids'])
+                    && $payload['include_player_ids']->count() === 2000
+                    && $payload['contents'] === ['en' => 'Body'];
+            }))
+            ->andReturn($response);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with(Mockery::on(function ($payload) {
+                return isset($payload['include_player_ids'])
+                    && $payload['include_player_ids']->count() === 500
+                    && $payload['contents'] === ['en' => 'Body'];
+            }))
+            ->andReturn($response);
+
+        $channel_response = $this->channel->send(new NotifiableLargePlayerIds(), new TestNotification());
+
+        $this->assertInstanceOf(ResponseInterface::class, $channel_response);
+    }
+
+    /** @test */
+    public function it_chunks_large_external_user_id_list_and_sends_multiple_requests()
+    {
+        $response = new Response(200);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with(Mockery::on(function ($payload) {
+                return isset($payload['include_external_user_ids'])
+                    && $payload['include_external_user_ids']->count() === 2000
+                    && $payload['contents'] === ['en' => 'Body'];
+            }))
+            ->andReturn($response);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with(Mockery::on(function ($payload) {
+                return isset($payload['include_external_user_ids'])
+                    && $payload['include_external_user_ids']->count() === 500
+                    && $payload['contents'] === ['en' => 'Body'];
+            }))
+            ->andReturn($response);
+
+        $channel_response = $this->channel->send(new NotifiableLargeExternalIds(), new TestNotification());
+
+        $this->assertInstanceOf(ResponseInterface::class, $channel_response);
+    }
 }

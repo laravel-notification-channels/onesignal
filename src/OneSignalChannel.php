@@ -32,13 +32,19 @@ class OneSignalChannel
             return;
         }
 
-        /** @var ResponseInterface $response */
-        $response = $this->oneSignal->sendNotificationCustom(
-            $this->payload($notifiable, $notification, $userIds)
-        );
+        $chunkSize = config('services.onesignal.chunk_size', OneSignalPayloadFactory::DEFAULT_CHUNK_SIZE);
+        $chunks = OneSignalPayloadFactory::getTargetingChunks($userIds, $chunkSize);
 
-        if ($response->getStatusCode() !== 200) {
-            throw CouldNotSendNotification::serviceRespondedWithAnError($response);
+        $response = null;
+        foreach ($chunks as $index => $chunk) {
+            /** @var ResponseInterface $response */
+            $response = $this->oneSignal->sendNotificationCustom(
+                $this->payload($notifiable, $notification, $chunk)
+            );
+
+            if ($response->getStatusCode() !== 200) {
+                throw CouldNotSendNotification::serviceRespondedWithAnError($response);
+            }
         }
 
         return $response;
