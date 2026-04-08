@@ -40,13 +40,13 @@ class ChannelTest extends TestCase
         $this->oneSignal->shouldReceive('sendNotificationCustom')
             ->once()
             ->with([
-                'contents'           => ['en' => 'Body'],
-                'headings'           => ['en' => 'Subject'],
-                'url'                => 'URL',
-                'chrome_web_icon'    => 'Icon',
-                'chrome_icon'        => 'Icon',
-                'adm_small_icon'     => 'Icon',
-                'small_icon'         => 'Icon',
+                'contents' => ['en' => 'Body'],
+                'headings' => ['en' => 'Subject'],
+                'url' => 'URL',
+                'chrome_web_icon' => 'Icon',
+                'chrome_icon' => 'Icon',
+                'adm_small_icon' => 'Icon',
+                'small_icon' => 'Icon',
                 'include_player_ids' => collect('player_id'),
             ])
             ->andReturn($response);
@@ -64,13 +64,13 @@ class ChannelTest extends TestCase
         $this->oneSignal->shouldReceive('sendNotificationCustom')
             ->once()
             ->with([
-                'contents'           => ['en' => 'Body'],
-                'headings'           => ['en' => 'Subject'],
-                'url'                => 'URL',
-                'chrome_web_icon'    => 'Icon',
-                'chrome_icon'        => 'Icon',
-                'adm_small_icon'     => 'Icon',
-                'small_icon'         => 'Icon',
+                'contents' => ['en' => 'Body'],
+                'headings' => ['en' => 'Subject'],
+                'url' => 'URL',
+                'chrome_web_icon' => 'Icon',
+                'chrome_icon' => 'Icon',
+                'adm_small_icon' => 'Icon',
+                'small_icon' => 'Icon',
                 'include_player_ids' => collect('player_id'),
             ])
             ->andReturn($response);
@@ -90,13 +90,13 @@ class ChannelTest extends TestCase
         $this->oneSignal->shouldReceive('sendNotificationCustom')
             ->once()
             ->with([
-                'contents'           => ['en' => 'Body'],
-                'headings'           => ['en' => 'Subject'],
-                'url'                => 'URL',
-                'chrome_web_icon'    => 'Icon',
-                'chrome_icon'        => 'Icon',
-                'adm_small_icon'     => 'Icon',
-                'small_icon'         => 'Icon',
+                'contents' => ['en' => 'Body'],
+                'headings' => ['en' => 'Subject'],
+                'url' => 'URL',
+                'chrome_web_icon' => 'Icon',
+                'chrome_icon' => 'Icon',
+                'adm_small_icon' => 'Icon',
+                'small_icon' => 'Icon',
                 'include_player_ids' => collect(['player_id_1', 'player_id_2']),
             ])
             ->andReturn($response);
@@ -116,14 +116,14 @@ class ChannelTest extends TestCase
         $this->oneSignal->shouldReceive('sendNotificationCustom')
             ->once()
             ->with([
-                'contents'        => ['en' => 'Body'],
-                'headings'        => ['en' => 'Subject'],
-                'url'             => 'URL',
+                'contents' => ['en' => 'Body'],
+                'headings' => ['en' => 'Subject'],
+                'url' => 'URL',
                 'chrome_web_icon' => 'Icon',
-                'chrome_icon'     => 'Icon',
-                'adm_small_icon'  => 'Icon',
-                'small_icon'      => 'Icon',
-                'filters'         => collect([['field' => 'email', 'value' => 'test@example.com']]),
+                'chrome_icon' => 'Icon',
+                'adm_small_icon' => 'Icon',
+                'small_icon' => 'Icon',
+                'filters' => collect([['field' => 'email', 'value' => 'test@example.com']]),
             ])
             ->andReturn($response);
 
@@ -142,13 +142,13 @@ class ChannelTest extends TestCase
         $this->oneSignal->shouldReceive('sendNotificationCustom')
             ->once()
             ->with([
-                'contents'          => ['en' => 'Body'],
-                'headings'          => ['en' => 'Subject'],
-                'url'               => 'URL',
-                'chrome_web_icon'   => 'Icon',
-                'chrome_icon'       => 'Icon',
-                'adm_small_icon'    => 'Icon',
-                'small_icon'        => 'Icon',
+                'contents' => ['en' => 'Body'],
+                'headings' => ['en' => 'Subject'],
+                'url' => 'URL',
+                'chrome_web_icon' => 'Icon',
+                'chrome_icon' => 'Icon',
+                'adm_small_icon' => 'Icon',
+                'small_icon' => 'Icon',
                 'included_segments' => collect(['included segments']),
             ])
             ->andReturn($response);
@@ -168,13 +168,13 @@ class ChannelTest extends TestCase
         $this->oneSignal->shouldReceive('sendNotificationCustom')
             ->once()
             ->with([
-                'contents'          => ['en' => 'Body'],
-                'headings'          => ['en' => 'Subject'],
-                'url'               => 'URL',
-                'chrome_web_icon'   => 'Icon',
-                'chrome_icon'       => 'Icon',
-                'adm_small_icon'    => 'Icon',
-                'small_icon'        => 'Icon',
+                'contents' => ['en' => 'Body'],
+                'headings' => ['en' => 'Subject'],
+                'url' => 'URL',
+                'chrome_web_icon' => 'Icon',
+                'chrome_icon' => 'Icon',
+                'adm_small_icon' => 'Icon',
+                'small_icon' => 'Icon',
                 'excluded_segments' => collect(['excluded segments']),
             ])
             ->andReturn($response);
@@ -192,14 +192,14 @@ class ChannelTest extends TestCase
         $this->oneSignal->shouldReceive('sendNotificationCustom')
             ->once()
             ->with([
-                'contents'        => ['en' => 'Body'],
-                'headings'        => ['en' => 'Subject'],
-                'url'             => 'URL',
+                'contents' => ['en' => 'Body'],
+                'headings' => ['en' => 'Subject'],
+                'url' => 'URL',
                 'chrome_web_icon' => 'Icon',
-                'chrome_icon'     => 'Icon',
-                'adm_small_icon'  => 'Icon',
-                'small_icon'      => 'Icon',
-                'tags'            => collect([['key' => 'device_uuid', 'relation' => '=', 'value' => '123e4567-e89b-12d3-a456-426655440000']]),
+                'chrome_icon' => 'Icon',
+                'adm_small_icon' => 'Icon',
+                'small_icon' => 'Icon',
+                'tags' => collect([['key' => 'device_uuid', 'relation' => '=', 'value' => '123e4567-e89b-12d3-a456-426655440000']]),
             ])
             ->andReturn($response);
 
@@ -216,14 +216,14 @@ class ChannelTest extends TestCase
         $this->oneSignal->shouldReceive('sendNotificationCustom')
             ->once()
             ->with([
-                'contents'        => ['en' => 'Body'],
-                'headings'        => ['en' => 'Subject'],
-                'url'             => 'URL',
+                'contents' => ['en' => 'Body'],
+                'headings' => ['en' => 'Subject'],
+                'url' => 'URL',
                 'chrome_web_icon' => 'Icon',
-                'chrome_icon'     => 'Icon',
-                'adm_small_icon'  => 'Icon',
-                'small_icon'      => 'Icon',
-                'tags'            => collect([
+                'chrome_icon' => 'Icon',
+                'adm_small_icon' => 'Icon',
+                'small_icon' => 'Icon',
+                'tags' => collect([
                     ['key' => 'device_uuid', 'relation' => '=', 'value' => '123e4567-e89b-12d3-a456-426655440000'],
                     ['key' => 'role', 'relation' => '=', 'value' => 'admin'],
                 ]),
@@ -245,13 +245,13 @@ class ChannelTest extends TestCase
         $this->oneSignal->shouldReceive('sendNotificationCustom')
             ->once()
             ->with([
-                'contents'                  => ['en' => 'Body'],
-                'headings'                  => ['en' => 'Subject'],
-                'url'                       => 'URL',
-                'chrome_web_icon'           => 'Icon',
-                'chrome_icon'               => 'Icon',
-                'adm_small_icon'            => 'Icon',
-                'small_icon'                => 'Icon',
+                'contents' => ['en' => 'Body'],
+                'headings' => ['en' => 'Subject'],
+                'url' => 'URL',
+                'chrome_web_icon' => 'Icon',
+                'chrome_icon' => 'Icon',
+                'adm_small_icon' => 'Icon',
+                'small_icon' => 'Icon',
                 'include_external_user_ids' => collect(['external_id']),
             ])
             ->andReturn($response);
@@ -278,14 +278,70 @@ class ChannelTest extends TestCase
         $this->oneSignal->shouldReceive('sendNotificationCustom')
             ->once()
             ->with([
-                'content_available'  => 1,
-                'data.action'        => 'reload',
-                'data.target'        => 'inbox',
+                'content_available' => 1,
+                'data.action' => 'reload',
+                'data.target' => 'inbox',
                 'include_player_ids' => collect('player_id'),
             ])
             ->andReturn($response);
 
         $channel_response = $this->channel->send(new Notifiable(), new TestSilentNotification());
+
+        $this->assertInstanceOf(ResponseInterface::class, $channel_response);
+    }
+
+    /** @test */
+    public function it_chunks_large_player_id_list_and_sends_multiple_requests()
+    {
+        $response = new Response(200);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with(Mockery::on(function ($payload) {
+                return isset($payload['include_player_ids'])
+                    && $payload['include_player_ids']->count() === 2000
+                    && $payload['contents'] === ['en' => 'Body'];
+            }))
+            ->andReturn($response);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with(Mockery::on(function ($payload) {
+                return isset($payload['include_player_ids'])
+                    && $payload['include_player_ids']->count() === 500
+                    && $payload['contents'] === ['en' => 'Body'];
+            }))
+            ->andReturn($response);
+
+        $channel_response = $this->channel->send(new NotifiableLargePlayerIds(), new TestNotification());
+
+        $this->assertInstanceOf(ResponseInterface::class, $channel_response);
+    }
+
+    /** @test */
+    public function it_chunks_large_external_user_id_list_and_sends_multiple_requests()
+    {
+        $response = new Response(200);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with(Mockery::on(function ($payload) {
+                return isset($payload['include_external_user_ids'])
+                    && $payload['include_external_user_ids']->count() === 2000
+                    && $payload['contents'] === ['en' => 'Body'];
+            }))
+            ->andReturn($response);
+
+        $this->oneSignal->shouldReceive('sendNotificationCustom')
+            ->once()
+            ->with(Mockery::on(function ($payload) {
+                return isset($payload['include_external_user_ids'])
+                    && $payload['include_external_user_ids']->count() === 500
+                    && $payload['contents'] === ['en' => 'Body'];
+            }))
+            ->andReturn($response);
+
+        $channel_response = $this->channel->send(new NotifiableLargeExternalIds(), new TestNotification());
 
         $this->assertInstanceOf(ResponseInterface::class, $channel_response);
     }

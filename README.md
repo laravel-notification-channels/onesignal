@@ -57,9 +57,12 @@ Add your OneSignal App ID and REST API Key to your `config/services.php`:
     'rest_api_url' => env('ONESIGNAL_REST_API_URL', 'https://api.onesignal.com'),
     'rest_api_key' => env('ONESIGNAL_REST_API_KEY'),
     'guzzle_client_timeout' => env('ONESIGNAL_GUZZLE_CLIENT_TIMEOUT', 0),
+    'chunk_size' => env('ONESIGNAL_CHUNK_SIZE', 2000),
 ],
 ...
 ```
+
+**Chunk size:** OneSignal allows at most 2,000 player IDs or external user IDs per API request. When you pass more than that (e.g. 10,000 users), the package automatically splits them into chunks and sends multiple requests. The `chunk_size` value (default 2000) sets the maximum IDs per request. You can override it via `ONESIGNAL_CHUNK_SIZE` in your `.env` if needed.
 
 
 ## Usage

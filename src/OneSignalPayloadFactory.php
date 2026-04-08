@@ -3,9 +3,15 @@
 namespace NotificationChannels\OneSignal;
 
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Arr;
 
 class OneSignalPayloadFactory
 {
+    /**
+     * Default number of player IDs or external user IDs per API request (OneSignal limit).
+     */
+    public const DEFAULT_CHUNK_SIZE = 2000;
+
     /**
      * Make a one signal notification payload.
      *
@@ -39,6 +45,53 @@ class OneSignalPayloadFactory
         }
 
         return $payload;
+    }
+
+    /**
+     * Split targeting into chunks for API requests (player IDs and external user IDs only).
+     * OneSignal accepts at most 2,000 IDs per request for include_player_ids and include_external_user_ids.
+     *
+     * @param  mixed  $targeting  Result of routeNotificationFor('OneSignal')
+     * @param  int  $chunkSize  Max IDs per request (default 2000)
+     * @return array<array> List of targeting arrays, one per chunk
+     */
+    public static function getTargetingChunks($targeting, int $chunkSize = self::DEFAULT_CHUNK_SIZE): array
+    {
+        if (static::isTargetingExternalUserIds($targeting)) {
+            $ids = $targeting['include_external_user_ids'];
+            $ids = is_array($ids) ? array_values($ids) : [$ids];
+            if (count($ids) <= $chunkSize) {
+                return [$targeting];
+            }
+            $chunks = array_chunk($ids, $chunkSize);
+
+            return array_map(fn (array $chunk) => ['include_external_user_ids' => $chunk], $chunks);
+        }
+
+        if (static::isTargetingPlayerIds($targeting)) {
+            $ids = Arr::wrap($targeting);
+            $ids = array_values($ids);
+            if (count($ids) <= $chunkSize) {
+                return [$targeting];
+            }
+
+            return array_chunk($ids, $chunkSize);
+        }
+
+        return [$targeting];
+    }
+
+    /**
+     * @param  mixed  $targeting
+     * @return bool
+     */
+    protected static function isTargetingPlayerIds($targeting)
+    {
+        return ! static::isTargetingEmail($targeting)
+            && ! static::isTargetingTags($targeting)
+            && ! static::isTargetingIncludedSegments($targeting)
+            && ! static::isTargetingExcludedSegments($targeting)
+            && ! static::isTargetingExternalUserIds($targeting);
     }
 
     /**
