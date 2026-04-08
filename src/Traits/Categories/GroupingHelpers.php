@@ -14,7 +14,7 @@ trait GroupingHelpers
     public function setAndroidGroup(string $group, array $groupMessage)
     {
         return $this->setParameter('android_group', $group)
-            ->setParameter('android_group_message', $groupMessage);
+            ->setParameter('android_group_message', json_encode($groupMessage)); // see https://github.com/OneSignal/onesignal-php-api/blob/main/docs/Model/Notification.md#:~:text=android_group_message
     }
 
     /**
