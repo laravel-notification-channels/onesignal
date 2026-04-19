@@ -85,7 +85,7 @@ class AccountApproved extends Notification
             ->setSubject("Your {$notifiable->service} account was approved!")
             ->setBody("Click here to see details.")
             ->setUrl('http://onesignal.com')
-            ->webButton(
+            ->setWebButton(
                 OneSignalWebButton::create('link-1')
                     ->text('Click here')
                     ->icon('https://upload.wikimedia.org/wikipedia/commons/4/4f/Laravel_logo.png')
@@ -139,8 +139,8 @@ public function routeNotificationForOneSignal()
 - `setBody('')`: Accepts a string value for the notification body.
 - `setIcon('')`: Accepts an url for the icon.
 - `setUrl('')`: Accepts an url for the notification click event.
-- `webButton(OneSignalWebButton $button)`: Allows you to add action buttons to the notification (Chrome 48+ (web push) only).
-- `button(OneSignalButton $button)`: Allows you to add buttons to the notification (Supported by iOS 8.0 and Android 4.1+ devices. Icon only works for Android).
+- `setWebButton(OneSignalWebButton $button)`: Allows you to add action buttons to the notification (Chrome 48+ (web push) only).
+- `setButton(OneSignalButton $button)`: Allows you to add buttons to the notification (Supported by iOS 8.0 and Android 4.1+ devices. Icon only works for Android).
 - `setData($key, $value)`: Allows you to set additional data for the message payload. For more information check the [OneSignal documentation](https://documentation.onesignal.com/reference).
 - `setParameter($key, $value)`: Allows you to set additional parameters for the message payload that are available for the REST API. For more information check the [OneSignal documentation](https://documentation.onesignal.com/reference).
 - `setImageAttachments($imageUrl)`: Allows you to set one Image to all possible Attachments [OneSignal Attachment documentation](https://documentation.onesignal.com/reference#section-attachments).
@@ -149,7 +149,7 @@ public function routeNotificationForOneSignal()
 
 ```php
 OneSignalMessage::create()
-    ->button(
+    ->setButton(
         OneSignalButton::create('id')
             ->text('button text')
             ->icon('button icon')
@@ -160,7 +160,7 @@ OneSignalMessage::create()
 
 ```php
 OneSignalMessage::create()
-    ->webButton(
+    ->setWebButton(
         OneSignalWebButton::create('id')
             ->text('button text')
             ->icon('button icon')
